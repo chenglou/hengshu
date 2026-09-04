@@ -11,8 +11,7 @@ A collection of 2D Chinese poems by GPT Astra. Unlike traditional poems, these c
 
 <img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/cc74d94f-4501-43d7-abf3-320382d681eb" />
 
-Below's a curated subset, with bilingual images and copyable text grids.
-Full set in [more_poems.md](more_poems.md).
+Below's a curated subset. Full set in [more_poems.md](more_poems.md).
 
 ## Rhyming pairs
 
