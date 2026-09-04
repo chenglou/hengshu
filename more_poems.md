@@ -10,7 +10,7 @@ All 18 grids, including the 7 featured in the [README](README.md).
 
 → and ↓ produce different poems; both rhyme.
 
-### [《归去》](poems/gui-qu.md)
+### [《归去》](https://github.com/user-attachments/assets/dd7514bb-08a1-4782-b5e2-1234fd3a04eb)
 
 Selected · Featured in README · 十一安
 
@@ -39,7 +39,7 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### [《归舟》](poems/gui-zhou.md)
+### [《归舟》](https://github.com/user-attachments/assets/1c4c106d-0bb0-4189-ae84-7e16444791ab)
 
 Selected · Featured in README · 十一安
 
@@ -68,7 +68,7 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### [《绣愁》](poems/xiu-chou.md)
+### [《绣愁》](https://github.com/user-attachments/assets/5ce4e33a-f0dd-4775-ac17-ff59b159e77a)
 
 Selected · Featured in README · 十欧
 
@@ -275,7 +275,7 @@ Workshop · 三鹅 · Conditional rhyme
 
 → and ↓ produce the same poem.
 
-### [《认人》](poems/ren-ren.md)
+### [《认人》](https://github.com/user-attachments/assets/d01c5e60-a63c-4528-af14-316c486e6f7f)
 
 Selected · Featured in README
 
@@ -300,7 +300,7 @@ Selected · Featured in README
 
 </details>
 
-### [《留一间》](poems/liu-yi-jian.md)
+### [《留一间》](https://github.com/user-attachments/assets/743bd97c-d378-4eb7-bc4e-f56901ba526e)
 
 Selected · Featured in README
 
@@ -325,7 +325,7 @@ Selected · Featured in README
 
 </details>
 
-### [《想听你笑》](poems/xiang-ting-ni-xiao.md)
+### [《想听你笑》](https://github.com/user-attachments/assets/18b54628-e3bc-4cd6-a527-0ddbd24b265b)
 
 Selected · Featured in README
 
@@ -379,7 +379,7 @@ Reserve
 
 Readable in all → ↓ ← ↑ directions.
 
-### [《留客》](poems/liu-ke.md)
+### [《留客》](https://github.com/user-attachments/assets/b19e4edc-9d72-495c-9ae2-618291202fdb)
 
 Selected · Featured in README
 

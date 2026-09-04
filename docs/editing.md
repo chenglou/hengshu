@@ -6,11 +6,12 @@ Edit [poems/poems.json](../poems/poems.json). Running `python3 scripts/build.py`
 
 - [More poems: all 18 grids](../more_poems.md)
 - [Editorial notes: rankings, commentary, and review history](editorial-notes.md)
-- Seven individual poem pages in `poems/`, linked from the README titles, with every supported reading and line-by-line English
 
 Edit the entire [README](../README.md) directly in Markdown. The build never rewrites it and requires no markers. It reads the fenced poem grids to check that they match the featured selection in the canonical data; ordinary prose edits do not affect that check.
 
-Do not hand-edit `more_poems.md`, `editorial-notes.md`, or the individual poem pages. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
+Do not hand-edit `more_poems.md` or `editorial-notes.md`. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
+
+The README embeds each uploaded PNG card immediately after its plain-text title, followed by the copyable text grid. Each poem's `imageUrl` stores its GitHub attachment URL; update its README image manually too. The build uses that URL as a title link in `more_poems.md`. There are no individual Markdown poem pages. The plain-text grids remain in both reading editions.
 
 Python 3.9 or newer is required; there are no third-party dependencies. The seven featured IDs and the complete collection's category descriptions live in `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py). If you change the featured selection, update both those IDs and the README by hand.
 
@@ -38,9 +39,9 @@ The earlier forms have different rules. A symmetric square repeats one poem, whi
 
 ## English translations
 
-Each featured poem has an `english` object in the canonical JSON: a stable page `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. All supported directions are displayed on the poem's page with Chinese on the left and English on the right.
+Each featured poem has an `english` object in the canonical JSON: a stable export `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. This editable text is retained as the source for the PNG cards. Symmetric cards share one translated stanza; the four-direction card explains how to recover the backward readings.
 
-Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the poem pages. The checks verify complete line coverage and table alignment. If a Chinese line changes, update its translation key and wording too.
+Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the cards. The checks verify complete line coverage. If a Chinese line changes, update its translation key and wording too. After changing a featured poem or translation, rerender and upload its PNG, then update `imageUrl` and the README image. The document build does not render images or verify remote image contents or availability.
 
 Run both checks after editing:
 

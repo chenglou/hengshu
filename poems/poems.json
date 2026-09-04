@@ -143,7 +143,8 @@
           "晚烟漫远天": "Evening haze spreads across the distant sky."
         },
         "note": "“Route” leaves the means of travel unspecified. The semicolon in “The sail is hidden; the route follows the mountains” preserves the Chinese line’s abrupt change of subject."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/1c4c106d-0bb0-4189-ae84-7e16444791ab"
     },
     {
       "id": "R02",
@@ -349,7 +350,8 @@
           "还有一人等": "someone is still waiting,",
           "在人间等你": "waiting for you in this world."
         }
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/743bd97c-d378-4eb7-bc4e-f56901ba526e"
     },
     {
       "id": "S02",
@@ -410,7 +412,8 @@
           "笑我傻样儿": "laughing at how silly I look."
         },
         "note": "“Call me a fool” leaves room for either teasing or sharper force. The laughter invites an affectionate reading without requiring it."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/18b54628-e3bc-4cd6-a527-0ddbd24b265b"
     },
     {
       "id": "S03",
@@ -1087,7 +1090,8 @@
           "远客归寒山": "A traveler from afar returns to the cold mountains."
         },
         "note": "The reverse readings reorder the corresponding forward lines. “Someone” preserves the unspecified person in 人留客 and 客留人; “homeward traveler” does not imply that the person has already arrived."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/b19e4edc-9d72-495c-9ae2-618291202fdb"
     },
     {
       "id": "N05",
@@ -1164,7 +1168,8 @@
           "妈我回来了": "“Mom, I’m home.”"
         },
         "note": "The apparent recognition is immediately withdrawn. The final quotation is Grandma’s speech; no diagnosis or further family history is supplied by the poem."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/d01c5e60-a63c-4528-af14-316c486e6f7f"
     },
     {
       "id": "P01",
@@ -1375,7 +1380,8 @@
           "归鸟枕青烟": "A returning bird takes blue-green haze for a pillow."
         },
         "note": "The person and bird exchange return and departure; the other three lines stay unchanged. “Pillow” and “veil” retain the repeated images. The bird’s pillow is a metaphor; 青 spans blue and green."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/dd7514bb-08a1-4782-b5e2-1234fd3a04eb"
     },
     {
       "id": "P03",
@@ -1486,7 +1492,8 @@
           "旧友有旧愁": "An old friend carries old sorrow."
         },
         "note": "The encounter is left open: it need not be a physical reunion, and the image need not be a photograph. The “practiced hand” is an experienced practitioner, not necessarily the old friend. Embroidering sorrow and finding it hard to embroider remain distinct."
-      }
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/5ce4e33a-f0dd-4775-ac17-ff59b159e77a"
     }
   ],
   "editorialSummary": "The selected rhyming edition now contains five grids: new 归去、绣愁、留饮 alongside the earlier 归舟、暮归. No earlier grid has been overwritten. The earlier same-poem and reversible selections remain in Collection 2, clearly separated from the all-line-rhyming requirement.",

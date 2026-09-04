@@ -27,6 +27,7 @@ class CollectionTests(unittest.TestCase):
 
     def test_generated_documents_match_canonical_data(self):
         _, outputs = build.generated_outputs(self.data)
+        self.assertFalse(any(path.parent == ROOT / 'poems' for path in outputs))
         for path, expected in outputs.items():
             with self.subTest(path=path.name):
                 self.assertEqual(path.read_text(encoding='utf-8'), expected)
@@ -57,22 +58,24 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(len(set(featured)), len(featured))
         self.assertTrue(set(featured).issubset(complete))
 
-    def test_bilingual_pages_align_every_supported_reading(self):
+    def test_featured_images_are_embedded_in_readme_and_linked_in_full_edition(self):
         _, outputs = build.generated_outputs(self.data)
+        readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+        complete = outputs[ROOT / 'more_poems.md']
         for _, _, poems in build.public_selection(self.data):
             for p in poems:
                 with self.subTest(poem=p['id']):
-                    document = outputs[ROOT / 'poems' / (p['english']['slug'] + '.md')]
-                    for direction in p['directions']:
-                        self.assertIn('## ' + build.LABELS[direction], document)
-                    actual = re.findall(r'^\| (.*?) \| (.*?) \|$', document, re.M)
-                    actual = [row for row in actual if row not in [('中文', 'English'), ('---', '---')]]
-                    expected = []
-                    for direction in p['directions']:
-                        chinese = p.get('punctuation', {}).get(direction, p['readings'][direction])
-                        expected.extend((line, p['english']['lines'][raw])
-                                        for line, raw in zip(chinese, p['readings'][direction]))
-                    self.assertEqual(actual, expected)
+                    title = f'《{p["title"]}》'
+                    self.assertIn(f'### {title}\n\n![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})\n\n'
+                                  + build.grid_markdown(p), readme)
+                    self.assertIn(f'### [{title}]({p["imageUrl"]})', complete)
+
+    def test_rejects_missing_or_invalid_image_urls(self):
+        for url in (None, 'poems/gui-qu.md', 'https://example.com/image.png'):
+            with self.subTest(url=url):
+                self.poem('P02')['imageUrl'] = url
+                with self.assertRaisesRegex(AssertionError, 'Featured poem requires a GitHub image URL'):
+                    build.public_selection(self.data)
 
     def test_rejects_missing_or_empty_english_lines(self):
         p = self.poem('N04')
@@ -85,13 +88,13 @@ class CollectionTests(unittest.TestCase):
             build.validate(self.data)
         p['english']['lines'][raw] = original
 
-    def test_rejects_unsafe_or_duplicate_page_paths(self):
+    def test_rejects_unsafe_or_duplicate_export_slugs(self):
         p = self.poem('P02')
         p['english']['slug'] = '../README'
-        with self.assertRaisesRegex(AssertionError, 'Invalid poem-page slug'):
+        with self.assertRaisesRegex(AssertionError, 'Invalid export slug'):
             build.validate(self.data)
         p['english']['slug'] = self.poem('R01')['english']['slug']
-        with self.assertRaisesRegex(AssertionError, 'Duplicate poem-page slug'):
+        with self.assertRaisesRegex(AssertionError, 'Duplicate export slug'):
             build.validate(self.data)
 
     def test_rejects_missing_character(self):

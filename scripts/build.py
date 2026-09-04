@@ -59,7 +59,7 @@ def validate(data):
             indexed.extend(section['poemIds'])
     assert sorted(indexed) == sorted(ids), 'Missing or duplicate collection entry'
     strict = conditional = 0
-    page_slugs = []
+    export_slugs = []
     for p in data['poems']:
         rows = p['rows']
         assert len(rows) == 5 and all(len(r) == 5 and len(HAN.findall(r)) == 5 for r in rows), p['id']
@@ -99,14 +99,14 @@ def validate(data):
             assert rows != cols, 'Selected rhyming pair must have different readings: ' + p['id']
         english = p.get('english')
         if english is not None:
-            assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', english['slug']), 'Invalid poem-page slug: ' + p['id']
-            page_slugs.append(english['slug'])
+            assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', english['slug']), 'Invalid export slug: ' + p['id']
+            export_slugs.append(english['slug'])
             assert isinstance(english['title'], str) and english['title'].strip(), 'Missing English title: ' + p['id']
             source_lines = {line for lines in expected.values() for line in lines}
             assert set(english['lines']) == source_lines, 'English lines do not match supported readings: ' + p['id']
             assert all(isinstance(line, str) and line.strip() and '\n' not in line and '\r' not in line
                        for line in english['lines'].values()), 'Empty or multiline English translation: ' + p['id']
-    assert len(page_slugs) == len(set(page_slugs)), 'Duplicate poem-page slug'
+    assert len(export_slugs) == len(set(export_slugs)), 'Duplicate export slug'
     return {'entries': len(ids), 'newEntries': sum(is_new(p, data) for p in data['poems']),
             'selectedRhymingPairs': sum(p['collection'] == 'rhyming_pair' and p['status'] == 'Selected' for p in data['poems']),
             'strictRhymePairs': strict, 'conditionalRhymePairs': conditional,
@@ -197,6 +197,10 @@ def public_selection(data):
         for p in poems:
             assert p['collection'] == collection and p['status'] == 'Selected', 'Invalid README selection: ' + p['id']
             assert p.get('english'), 'Featured poem requires English translations: ' + p['id']
+            image_url = p.get('imageUrl')
+            assert isinstance(image_url, str) and re.fullmatch(
+                r'https://github\.com/user-attachments/assets/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}',
+                image_url), 'Featured poem requires a GitHub image URL: ' + p['id']
             if collection == 'rhyming_pair':
                 assert p['rhyme']['compliance'] == 'pass' and not p['checks']['transposeSymmetric']
             elif collection == 'same_poem_square':
@@ -213,25 +217,6 @@ def validate_readme(data, current):
               for block in re.findall(r'```text\n(.*?)\n```', current, re.S)]
     assert actual == expected, ('README poem grids differ from the featured selection. '
                                 'Update README.md manually to match the canonical poems and featured IDs.')
-
-
-def table_cell(text):
-    return text.replace('|', '\\|')
-
-
-def poem_markdown(p):
-    english = p['english']
-    out = [f'# 《{p["title"]}》 · {english["title"]}',
-           p['formLabel'], grid_markdown(p)]
-    if p.get('rhyme'):
-        out.append('**Chinese rhyme:** ' + p['rhyme']['family'] + ' (' + ' / '.join(p['rhyme']['finals']) + ').')
-    for direction in p['directions']:
-        chinese = p.get('punctuation', {}).get(direction, p['readings'][direction])
-        table = ['| 中文 | English |', '| --- | --- |']
-        table.extend('| ' + table_cell(line) + ' | ' + table_cell(english['lines'][raw]) + ' |'
-                     for line, raw in zip(chinese, p['readings'][direction]))
-        out.extend(['## ' + LABELS[direction], '\n'.join(table)])
-    return '\n\n'.join(out) + '\n'
 
 
 def more_poems_markdown(data):
@@ -266,7 +251,7 @@ def more_poems_markdown(data):
                     labels.append('Conditional rhyme')
             title = f'《{p["title"]}》'
             if pid in featured:
-                title = f'[{title}](poems/{p["english"]["slug"]}.md)'
+                title = f'[{title}]({p["imageUrl"]})'
             out.extend(['### ' + title, ' · '.join(labels), grid_markdown(p)])
             directions = ['right'] if p['checks']['transposeSymmetric'] else p['directions']
             headers = ['→ = ↓'] if p['checks']['transposeSymmetric'] else [ARROWS[d] for d in directions]
@@ -293,9 +278,6 @@ def generated_outputs(data):
         ROOT / 'more_poems.md': more_poems_markdown(data),
         ROOT / 'docs' / 'editorial-notes.md': editorial_markdown(data, checks),
     }
-    for _, _, poems in public_selection(data):
-        for p in poems:
-            outputs[BASE / (p['english']['slug'] + '.md')] = poem_markdown(p)
     return checks, outputs
 
 

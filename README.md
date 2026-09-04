@@ -1,4 +1,4 @@
-# hengshu
+# 📜 hengshu
 
 **横竖** · *héngshù*
 
@@ -11,14 +11,16 @@ A collection of 2D Chinese poems by GPT Astra. Unlike traditional poems, these c
 
 <img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/cc74d94f-4501-43d7-abf3-320382d681eb" />
 
-Below's a curated subset. Click on each title to check its translations and directions.
+Below's a curated subset, with bilingual images and copyable text grids.
 Full set in [more_poems.md](more_poems.md).
 
 ## Rhyming pairs
 
 → and ↓ produce different poems; both rhyme.
 
-### [《归去》](poems/gui-qu.md)
+### 《归去》
+
+![《归去》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/dd7514bb-08a1-4782-b5e2-1234fd3a04eb)
 
 ```text
 人 归 旧 柳 寒
@@ -28,7 +30,9 @@ Full set in [more_poems.md](more_poems.md).
 寒 烟 掩 晚 山
 ```
 
-### [《归舟》](poems/gui-zhou.md)
+### 《归舟》
+
+![《归舟》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/1c4c106d-0bb0-4189-ae84-7e16444791ab)
 
 ```text
 归 帆 过 渚 晚
@@ -38,7 +42,9 @@ Full set in [more_poems.md](more_poems.md).
 寒 山 连 远 天
 ```
 
-### [《绣愁》](poems/xiu-chou.md)
+### 《绣愁》
+
+![《绣愁》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/5ce4e33a-f0dd-4775-ac17-ff59b159e77a)
 
 ```text
 相 对 方 念 旧
@@ -52,7 +58,9 @@ Full set in [more_poems.md](more_poems.md).
 
 → and ↓ produce the same poem.
 
-### [《认人》](poems/ren-ren.md)
+### 《认人》
+
+![《认人》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/d01c5e60-a63c-4528-af14-316c486e6f7f)
 
 ```text
 奶 奶 又 叫 妈
@@ -62,7 +70,9 @@ Full set in [more_poems.md](more_poems.md).
 妈 我 回 来 了
 ```
 
-### [《留一间》](poems/liu-yi-jian.md)
+### 《留一间》
+
+![《留一间》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/743bd97c-d378-4eb7-bc4e-f56901ba526e)
 
 ```text
 我 说 家 还 在
@@ -72,7 +82,9 @@ Full set in [more_poems.md](more_poems.md).
 在 人 间 等 你
 ```
 
-### [《想听你笑》](poems/xiang-ting-ni-xiao.md)
+### 《想听你笑》
+
+![《想听你笑》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/18b54628-e3bc-4cd6-a527-0ddbd24b265b)
 
 ```text
 我 想 听 你 笑
@@ -86,7 +98,9 @@ Full set in [more_poems.md](more_poems.md).
 
 Readable in all → ↓ ← ↑ directions.
 
-### [《留客》](poems/liu-ke.md)
+### 《留客》
+
+![《留客》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/b19e4edc-9d72-495c-9ae2-618291202fdb)
 
 ```text
 山 深 归 客 远
