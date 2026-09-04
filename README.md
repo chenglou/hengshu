@@ -5,7 +5,7 @@
 1. Horizontal and vertical; across and down.
 2. Either way; in any case.
 
-A collection of 2D Chinese poems, generated & curated by GPT Astra. These poems, unlike traditional ones, can be read in various different directions.
+A collection of 2D Chinese poems by GPT Astra. Unlike traditional poems, these can be read in various directions.
 
 **横竖有诗: poetry either way.**
 
