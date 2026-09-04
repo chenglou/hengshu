@@ -2,7 +2,9 @@
 
 All 18 grids, including the 7 featured in the [README](README.md).
 
-**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. The [editorial collection](poems/collection.md) records the rankings, reservations, and review history.
+**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. The [editorial notes](docs/editorial-notes.md) record the rankings, reservations, and review history.
+
+[Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · [Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)
 
 Arrows indicate the direction within each line. Keep rows in top-to-bottom order and columns in left-to-right order. No diagonal or arbitrary-path readings are claimed.
 
@@ -514,4 +516,4 @@ Workshop
 
 ---
 
-[Back to the seven-poem selection](README.md) · [Editorial notes and AI review history](poems/collection.md) · [Earlier experiments](archive/README.md).
+[Back to the seven-poem selection](README.md) · [Editorial notes and AI review history](docs/editorial-notes.md) · [Earlier experiments](archive/README.md).

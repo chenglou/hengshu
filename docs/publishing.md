@@ -5,21 +5,21 @@
 - [ ] Copyedit the [seven-grid README selection](../README.md), ideally with an independent fluent Chinese reader.
 - [x] Keep the README to three rhyming pairs, three symmetric squares, and one four-direction poem, with titles and brief category descriptions.
 - [x] Include all 18 grids in [more_poems.md](../more_poems.md), including the README selection; label reserve and workshop entries.
-- [x] Keep detailed rankings, editorial reservations, and AI review disagreements in the [editorial collection](../poems/collection.md).
+- [x] Keep detailed rankings, editorial reservations, and AI review disagreements in the [editorial notes](editorial-notes.md).
 - [ ] Confirm titles, punctuation, rhyme labels, attribution, and the explanation of AI-assisted creation and review.
-- [ ] Choose content and code licensing before public release. No license has been selected in this repository.
+- [ ] Choose content and code licensing. The repository is public, but no license has been selected.
 
 ## Markdown-first publication
 
-The README is the main reading experience: seven static squares under three category headings. The complete collection offers expandable readings without filling the README with duplicate text. Reading arrows describe direction within a row or column, not diagonal or arbitrary paths.
+The README is the main reading experience: seven static squares under three category headings. [more_poems.md](../more_poems.md) offers all 18 grids with expandable readings without filling the README with duplicate text. Reading arrows describe direction within a row or column, not diagonal or arbitrary paths.
 
 A custom interactive reader is optional, not a release requirement. The earlier chat preview depends on its host and is not part of this repository.
 
 ## Release
 
-- [ ] Choose whether the remote repository is public or private. A separate website is not required.
+- [x] Create the public repository at [chenglou/hengshu](https://github.com/chenglou/hengshu). A separate website is not required.
 - [ ] Run the build and tests from a fresh checkout; verify links, grids, and expandable readings in the rendered Markdown.
 - [ ] Review the files for personal paths, credentials, and creation-session details. Keep private runtime logs out of the repository.
-- [ ] Publish only after the content, license, and destination decisions are settled.
+- [ ] Review future content changes before committing and pushing them.
 
-The local repository is a starting point. Creating it does not publish the poems or create a remote repository.
+The initial collection is published. Local edits do not reach GitHub until committed and pushed.

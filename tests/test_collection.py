@@ -31,6 +31,18 @@ class CollectionTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 self.assertEqual(path.read_text(encoding='utf-8'), expected)
 
+    def test_readme_prose_does_not_affect_grid_validation(self):
+        current = (ROOT / 'README.md').read_text(encoding='utf-8')
+        edited = '# A hand-edited introduction\n\n' + current + '\nA different process summary.\n'
+        build.validate_readme(self.data, edited)
+
+    def test_rejects_readme_grid_drift(self):
+        current = (ROOT / 'README.md').read_text(encoding='utf-8')
+        original = ' '.join(self.poem('P02')['rows'][0])
+        edited = current.replace(original, '人 去 旧 柳 寒', 1)
+        with self.assertRaisesRegex(AssertionError, 'README poem grids differ'):
+            build.validate_readme(self.data, edited)
+
     def test_public_editions_preserve_grids_and_complete_coverage(self):
         _, outputs = build.generated_outputs(self.data)
 
@@ -39,7 +51,7 @@ class CollectionTests(unittest.TestCase):
                     for block in re.findall(r'```text\n(.*?)\n```', document, re.S)]
 
         complete = grids(outputs[ROOT / 'more_poems.md'])
-        featured = grids(outputs[ROOT / 'README.md'])
+        featured = grids((ROOT / 'README.md').read_text(encoding='utf-8'))
         self.assertEqual(Counter(complete), Counter(tuple(p['rows']) for p in self.data['poems']))
         self.assertEqual(len(featured), 7)
         self.assertEqual(len(set(featured)), len(featured))

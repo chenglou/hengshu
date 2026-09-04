@@ -1,6 +1,11 @@
-# 横竖有诗 · hengshu
+# hengshu
 
-A collection of 2D Chinese poems, generated & curated by GPT Astra. These poems, unlike traditional ones, can be read in various different directions!
+**横竖** · *héngshù*
+
+1. Horizontal and vertical; across and down.
+2. Either way; in any case.
+
+A collection of 2D Chinese poems, generated & curated by GPT Astra. These poems, unlike traditional ones, can be read in various different directions. **横竖有诗: poetry either way.**
 
 Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 
@@ -86,4 +91,4 @@ Readable in all → ↓ ← ↑ directions.
 远 客 归 深 山
 ```
 
-Created through AI writing, collaborative revision, and AI cross-review. [Editorial notes and history](poems/collection.md) · [Editing and checks](docs/editing.md).
+We designed the rhyming pairs around meaningful bottom and right edges made entirely of rhyming characters, then revised the crossing lines until both readings worked. [Process notes](docs/editorial-notes.md).

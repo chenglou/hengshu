@@ -95,6 +95,9 @@ def validate(data):
             else:
                 assert '么' not in rows[-1] and not any(r[-1] == '么' for r in rows)
                 strict += 1
+        if p['collection'] == 'rhyming_pair' and p['status'] == 'Selected':
+            assert rhyme and rhyme['compliance'] == 'pass', 'Selected rhyming pair must pass: ' + p['id']
+            assert rows != cols, 'Selected rhyming pair must have different readings: ' + p['id']
     return {'entries': len(ids), 'newEntries': sum(is_new(p, data) for p in data['poems']),
             'selectedRhymingPairs': sum(p['collection'] == 'rhyming_pair' and p['status'] == 'Selected' for p in data['poems']),
             'strictRhymePairs': strict, 'conditionalRhymePairs': conditional,
@@ -124,6 +127,8 @@ def entry(p, rank, level, new=False):
             out.append(('→ ' if direction == 'right' else '↓ ') + ' · '.join(values))
         if rhyme.get('caveat'):
             out.append('**Rhyme limitation:** ' + rhyme['caveat'])
+    if p.get('selectionNote'):
+        out.append('**Poem note:** ' + p['selectionNote'])
     out.extend(['**Why here:** ' + p['curation']['reason'], '**Limit:** ' + p['curation']['weakness']])
     if p['curation'].get('reading'):
         out.append('**Reading:** ' + p['curation']['reading'])
@@ -136,11 +141,11 @@ def entry(p, rank, level, new=False):
     return '\n\n'.join(out)
 
 
-def markdown(data, checks):
+def editorial_markdown(data, checks):
     by_id = {p['id']: p for p in data['poems']}
-    out = ['# 简体五乘五诗集',
-           f'Ranked collection · {data["updated"]} · {checks["entries"]} entries, including {checks["newEntries"]} additions.',
-           '**Start with the [selected rhyming poems](selected.md).** This complete collection also retains reserve pieces, workshop drafts, and the earlier forms.',
+    out = ['# Editorial notes · 编选记录',
+           f'Rankings and review history · {data["updated"]} · {checks["entries"]} entries, including {checks["newEntries"]} additions.',
+           'For the poems themselves, start with the [seven-grid README selection](../README.md) or [all 18 grids](../more_poems.md). These notes retain the editorial reasoning, reservations, and AI review history.',
            '## Reading rules and selection',
            'Collection 1 contains rhyming poem-pairs: rows left to right, taken top to bottom, form one poem; columns top to bottom, taken left to right, form the other. All five line endings must rhyme in each reading. Backwards and diagonal readings are not required.',
            'Collection 2 preserves the earlier, unrhymed forms and their new additions. Same-poem squares, reversible grids, and unrestricted forward pairs are kept in separate ranked groups. This retains both the symmetric and reversible kinds from the older experiments without conflating their reading rules.',
@@ -167,35 +172,7 @@ def markdown(data, checks):
                 'The bottom row supplies every vertical ending, and the rightmost column supplies every horizontal ending. They share the lower-right character, so all-line-rhyming pairs necessarily share a rhyme family under a consistent classification.',
                 '## Earlier records',
                 '- [Initial three poems](../archive/2d-poems.md)\n- [First fresh-agent round](../archive/fresh-2d-poems-audit.md)\n- [Earlier rhyming round](../archive/rhyming-2d-poems.md)',
-                'The editable inventory is [poems.json](poems.json). Earlier source documents have not been overwritten.'])
-    return '\n\n'.join(out) + '\n'
-
-
-def selected_markdown(data):
-    by_id = {p['id']: p for p in data['poems']}
-    section = next(s for s in data['sections'] if s['id'] == 'rhyming')
-    selected = [by_id[pid] for pid in section['poemIds'] if by_id[pid]['status'] == 'Selected']
-    assert selected and all(p['rhyme']['compliance'] == 'pass' for p in selected)
-    assert all(not p['checks']['transposeSymmetric'] for p in selected)
-    out = ['# 横读竖读 · 双向押韵诗选',
-           f'{len(selected)} selected grids · Simplified Chinese · {data["updated"]}',
-           'Each square contains two five-line poems. Read rows left to right, in top-to-bottom order; read columns top to bottom, in left-to-right order. Every line ends in the stated modern Mandarin rhyme family. Reverse readings and classical tone patterns are not required.',
-           'The order is editorial, judged first by the less fluent of the two readings. Earlier selections are preserved alongside new work; workshop drafts are excluded from this reading edition. The [complete collection and review record](collection.md) retains them separately.']
-    for rank, p in enumerate(selected, 1):
-        right = p.get('punctuation', {}).get('right', p['readings']['right'])
-        down = p.get('punctuation', {}).get('down', p['readings']['down'])
-        out.extend([f'## {rank}.《{p["title"]}》',
-                    'New selection.' if is_new(p, data) else 'Retained from an earlier round.',
-                    '```text\n' + '\n'.join(' '.join(row) for row in p['rows']) + '\n```',
-                    '| 横读 → | 竖读 ↓ |\n|---|---|\n' + '\n'.join(f'| {a} | {b} |' for a,b in zip(right, down)),
-                    '**韵脚 · ' + p['rhyme']['family'] + '**\n\n' + '\n\n'.join(
-                        arrow + ' ' + ' · '.join(line[-1] + ' ' + py for line, py in zip(p['readings'][direction], p['rhyme'][key]))
-                        for arrow,direction,key in [('→','right','across'),('↓','down','down')]),
-                    p.get('selectionNote', p['curation']['reason']),
-                    '**Editorial reservation:** ' + p['curation']['weakness']])
-    out.extend(['## Rhyme and text checks',
-                'All included grids contain exactly 25 Chinese characters; every displayed column has been recomputed from the square. The two readings are not identical. All ten line endings per grid have checked contextual pronunciations within one family of [《中华通韵》, GF 0022—2019](https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202111/W020211118492193544846.pdf). Tones may differ. Rhyme correctness is separate from the editorial judgment of poetic quality.',
-                'For the earlier same-poem squares and reversible poems, see [Collection 2 in the complete collection](collection.md). Their different constraints are not presented as equivalent to this selection.'])
+                'The editable inventory is [poems.json](../poems/poems.json). Earlier source documents have not been overwritten.'])
     return '\n\n'.join(out) + '\n'
 
 
@@ -220,19 +197,12 @@ def public_selection(data):
     return groups
 
 
-def readme_markdown(data):
-    groups = public_selection(data)
-    out = ['# 横竖有诗 · hengshu',
-           'A collection of 2D Chinese poems, generated & curated by GPT Astra. '
-           'These poems, unlike traditional ones, can be read in various different directions!',
-           "Below's a curated subset. The full set is in [more_poems.md](more_poems.md)."]
-    for title, description, poems in groups:
-        out.extend(['## ' + title, description])
-        for p in poems:
-            out.extend([f'### 《{p["title"]}》', grid_markdown(p)])
-    out.append('Created through AI writing, collaborative revision, and AI cross-review. '
-               '[Editorial notes and history](poems/collection.md) · [Editing and checks](docs/editing.md).')
-    return '\n\n'.join(out) + '\n'
+def validate_readme(data, current):
+    expected = [tuple(p['rows']) for _, _, poems in public_selection(data) for p in poems]
+    actual = [tuple(''.join(line.split()) for line in block.splitlines())
+              for block in re.findall(r'```text\n(.*?)\n```', current, re.S)]
+    assert actual == expected, ('README poem grids differ from the featured selection. '
+                                'Update README.md manually to match the canonical poems and featured IDs.')
 
 
 def more_poems_markdown(data):
@@ -249,7 +219,9 @@ def more_poems_markdown(data):
     out = ['# More poems · 全集',
            f'All {len(data["poems"])} grids, including the {len(featured)} featured in the [README](README.md).',
            '**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. '
-           'The [editorial collection](poems/collection.md) records the rankings, reservations, and review history.',
+           'The [editorial notes](docs/editorial-notes.md) record the rankings, reservations, and review history.',
+           '[Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · '
+           '[Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)',
            READING_RULES,
            'Rhyming pairs use modern Mandarin rhyme families, with tones unrestricted. '
            '《姐姐》 is a conditional-rhyme draft, explicitly marked below. The other forms have no rhyme requirement.']
@@ -282,19 +254,17 @@ def more_poems_markdown(data):
             out.append('<details>\n<summary>Readings: ' + ' / '.join(headers) + '</summary>\n\n'
                        + '\n\n'.join(expanded) + '\n\n</details>')
     out.extend(['---', '[Back to the seven-poem selection](README.md) · '
-                '[Editorial notes and AI review history](poems/collection.md) · [Earlier experiments](archive/README.md).'])
+                '[Editorial notes and AI review history](docs/editorial-notes.md) · [Earlier experiments](archive/README.md).'])
     return '\n\n'.join(out) + '\n'
 
 
 def generated_outputs(data):
     assert data['status'] == 'complete', 'Do not publish unfinished rankings'
     checks = validate(data)
+    validate_readme(data, (ROOT / 'README.md').read_text(encoding='utf-8'))
     return checks, {
-        ROOT / 'README.md': readme_markdown(data),
         ROOT / 'more_poems.md': more_poems_markdown(data),
-        BASE / 'collection.md': markdown(data, checks),
-        BASE / 'selected.md': selected_markdown(data),
-        BASE / 'checks.json': json.dumps(checks, ensure_ascii=False, indent=2) + '\n',
+        ROOT / 'docs' / 'editorial-notes.md': editorial_markdown(data, checks),
     }
 
 

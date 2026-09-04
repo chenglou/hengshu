@@ -1,8 +1,8 @@
-# 简体五乘五诗集
+# Editorial notes · 编选记录
 
-Ranked collection · 2026-09-03 · 18 entries, including 3 additions.
+Rankings and review history · 2026-09-03 · 18 entries, including 3 additions.
 
-**Start with the [selected rhyming poems](selected.md).** This complete collection also retains reserve pieces, workshop drafts, and the earlier forms.
+For the poems themselves, start with the [seven-grid README selection](../README.md) or [all 18 grids](../more_poems.md). These notes retain the editorial reasoning, reservations, and AI review history.
 
 ## Reading rules and selection
 
@@ -67,6 +67,8 @@ The first five form the selected reading edition: three new pairs and the two ea
 → 寒 hán · 烟 yān · 掩 yǎn · 晚 wǎn · 山 shān
 
 ↓ 寒 hán · 烟 yān · 掩 yǎn · 晚 wǎn · 山 shān
+
+**Poem note:** The person returns while the bird leaves; turn the square and the person leaves while the bird returns. The unchanged pillow and curtains make the exchange matter. Three shared lines act as a fixed scene against which presence and absence change.
 
 **Why here:** The smallest change produces the strongest new atmospheric contrast: 人归／去鸟 becomes 人去／归鸟. The old pillow, curtains and distant hills stay fixed while the human presence changes. The literal pillow gives the bird’s figurative pillow a bodily counterpart; the repeated 掩 connects the room with the veiled mountains. Both external readers selected it, and the fresh comparative reader ranked it first.
 
@@ -148,6 +150,8 @@ The first five form the selected reading edition: three new pairs and the two ea
 
 ↓ 瘦 shòu · 手 shǒu · 绣 xiù · 旧 jiù · 愁 chóu
 
+**Poem note:** Recognizing an old friend in an image becomes recognizing the limits of an art. The thin hand nevertheless stitches the old sorrow. The two readings hold effort and difficulty together; they do not cancel each other out.
+
 **Why here:** The most substantial new change of meaning: 识 moves from recognizing an old friend in an image to understanding the difficulty of expressing sorrow. 瘦手绣旧愁 gives that difficulty a bodily, material answer. 人老难如旧 and 念旧谁如旧 connect remembered likeness with changed bodies. The editor and one cross-reader selected it; the fresh comparative reader preferred Reserve because its connective lines are less effortless. It ranks below 归舟 for evenness, above 留饮 for the force of its central transformation.
 
 **Limit:** 故问愁谁有 is the loosest connection and uses literary question-word inversion. 对图问老手 is functional rather than especially lyrical. Four occurrences of 旧 unify the subject but also reveal the construction.
@@ -189,6 +193,8 @@ The first five form the selected reading edition: three new pairs and the two ea
 → 酒 jiǔ · 后 hòu · 留 liú · 旧 jiù · 友 yǒu
 
 ↓ 旧 jiù · 酒 jiǔ · 酬 chóu · 旧 jiù · 友 yǒu
+
+**Poem note:** Across, lamplight and the familiar shadow soften the cold window; down, warming wine becomes exchanging toasts and keeping a friend a little longer. The same room supports two connected movements rather than two unrelated collections of images.
 
 **Why here:** Both readings sustain the same hospitable interior but organize it differently. Across, the cold window gives way to lamplight, emotional warmth and wine offered to a friend. Down, the familiar light leads through warming wine and exchanging toasts to asking the friend to stay. Replacing 且 with 火 made both the lamp line and the wine-warming line more concrete; two independent cross-readers accepted the revised pair.
 
@@ -823,4 +829,4 @@ The bottom row supplies every vertical ending, and the rightmost column supplies
 - [First fresh-agent round](../archive/fresh-2d-poems-audit.md)
 - [Earlier rhyming round](../archive/rhyming-2d-poems.md)
 
-The editable inventory is [poems.json](poems.json). Earlier source documents have not been overwritten.
+The editable inventory is [poems.json](../poems/poems.json). Earlier source documents have not been overwritten.
