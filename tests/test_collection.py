@@ -1,0 +1,98 @@
+import copy
+from collections import Counter
+import importlib.util
+import json
+from pathlib import Path
+import re
+import unittest
+from urllib.parse import unquote
+
+
+ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location('hengshu_build', ROOT / 'scripts' / 'build.py')
+build = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(build)
+
+
+class CollectionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.canonical = json.loads((ROOT / 'poems' / 'poems.json').read_text(encoding='utf-8'))
+
+    def setUp(self):
+        self.data = copy.deepcopy(self.canonical)
+
+    def poem(self, poem_id):
+        return next(p for p in self.data['poems'] if p['id'] == poem_id)
+
+    def test_generated_documents_match_canonical_data(self):
+        _, outputs = build.generated_outputs(self.data)
+        for path, expected in outputs.items():
+            with self.subTest(path=path.name):
+                self.assertEqual(path.read_text(encoding='utf-8'), expected)
+
+    def test_public_editions_preserve_grids_and_complete_coverage(self):
+        _, outputs = build.generated_outputs(self.data)
+
+        def grids(document):
+            return [tuple(''.join(line.split()) for line in block.splitlines())
+                    for block in re.findall(r'```text\n(.*?)\n```', document, re.S)]
+
+        complete = grids(outputs[ROOT / 'more_poems.md'])
+        featured = grids(outputs[ROOT / 'README.md'])
+        self.assertEqual(Counter(complete), Counter(tuple(p['rows']) for p in self.data['poems']))
+        self.assertEqual(len(featured), 7)
+        self.assertEqual(len(set(featured)), len(featured))
+        self.assertTrue(set(featured).issubset(complete))
+
+    def test_rejects_missing_character(self):
+        self.poem('P02')['rows'][0] = '人归旧柳'
+        with self.assertRaises(AssertionError):
+            build.validate(self.data)
+
+    def test_rejects_incorrect_transpose(self):
+        self.poem('P02')['readings']['down'][0] = '人归旧柳寒'
+        with self.assertRaisesRegex(AssertionError, 'Reading mismatch'):
+            build.validate(self.data)
+
+    def test_rejects_punctuation_that_changes_text(self):
+        self.poem('P03')['punctuation']['right'][0] = '相对才念旧，'
+        with self.assertRaisesRegex(AssertionError, 'Punctuation changed letters'):
+            build.validate(self.data)
+
+    def test_rejects_wrong_rhyme_family(self):
+        self.poem('P02')['rhyme']['family'] = '十欧'
+        with self.assertRaises(AssertionError):
+            build.validate(self.data)
+
+    def test_rejects_wrong_contextual_pronunciation(self):
+        self.poem('R02')['rhyme']['across'][-1] = 'hái'
+        with self.assertRaises(AssertionError):
+            build.validate(self.data)
+
+    def test_conditional_rhyme_cannot_enter_selection(self):
+        self.poem('N02')['status'] = 'Selected'
+        with self.assertRaises(AssertionError):
+            build.generated_outputs(self.data)
+
+    def test_preserved_source_cannot_be_silently_rewritten(self):
+        p = self.poem('R01')
+        p['rows'][0] = '孤帆过渚晚'
+        p['readings']['right'][0] = p['rows'][0]
+        p['readings']['down'][0] = '孤舟客梦寒'
+        with self.assertRaisesRegex(AssertionError, 'Earlier wording altered'):
+            build.validate(self.data)
+
+    def test_local_markdown_links_resolve(self):
+        for document in ROOT.rglob('*.md'):
+            text = document.read_text(encoding='utf-8')
+            for target in re.findall(r'\]\(([^\s)]+)\)', text):
+                if '://' in target or target.startswith(('#', 'mailto:')):
+                    continue
+                target = unquote(target.split('#', 1)[0].strip('<>'))
+                with self.subTest(document=str(document.relative_to(ROOT)), target=target):
+                    self.assertTrue((document.parent / target).exists())
+
+
+if __name__ == '__main__':
+    unittest.main()

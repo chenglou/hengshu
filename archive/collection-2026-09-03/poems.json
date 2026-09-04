@@ -1,0 +1,1235 @@
+{
+  "updated": "2026-09-03",
+  "status": "complete",
+  "defaultSection": "earlier",
+  "defaultPoem": "N05",
+  "sections": [
+    {
+      "id": "rhyming",
+      "label": "1 · Rhyming pairs → ↓",
+      "title": "Collection 1 — Rhyming across/down pairs",
+      "ranked": true,
+      "poemIds": [
+        "R01",
+        "R02",
+        "R03",
+        "N01",
+        "N03",
+        "N02"
+      ],
+      "intro": "The first two are a close leading pair. All three new rhyming entries remain workshop drafts; no new entry was promoted merely for being new. 姐姐 is last in the strict-selection order because its rhyme is conditional, even though its spoken voice has merits."
+    },
+    {
+      "id": "earlier",
+      "label": "2 · Earlier forms & additions",
+      "title": "Collection 2 — Earlier forms and new additions",
+      "ranked": false,
+      "groups": [
+        {
+          "label": "Same-poem squares · → = ↓",
+          "poemIds": [
+            "N05",
+            "S01",
+            "S02",
+            "S03"
+          ]
+        },
+        {
+          "label": "Reversible grids · → ↓ ← ↑",
+          "poemIds": [
+            "N04",
+            "F01",
+            "F02"
+          ]
+        },
+        {
+          "label": "Earlier unrhymed poem-pairs · → ↓",
+          "poemIds": [
+            "D01",
+            "D02"
+          ]
+        }
+      ],
+      "intro": "These groups have different constraints, so their ranks are separate. Same-poem squares are not claimed to work backwards; reversible grids are not claimed to work along arbitrary paths."
+    }
+  ],
+  "poems": [
+    {
+      "id": "R01",
+      "title": "归舟",
+      "collection": "rhyming_pair",
+      "origin": "earlier_rhyming_round",
+      "rows": [
+        "归帆过渚晚",
+        "舟隐村外烟",
+        "客路水云漫",
+        "梦随云渐远",
+        "寒山连远天"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "十一安",
+        "finals": [
+          "an",
+          "ian",
+          "uan",
+          "üan"
+        ],
+        "across": [
+          "wǎn",
+          "yān",
+          "màn",
+          "yuǎn",
+          "tiān"
+        ],
+        "down": [
+          "hán",
+          "shān",
+          "lián",
+          "yuǎn",
+          "tiān"
+        ],
+        "compliance": "pass"
+      },
+      "source": "../rhyming-2d-poems.md",
+      "readings": {
+        "right": [
+          "归帆过渚晚",
+          "舟隐村外烟",
+          "客路水云漫",
+          "梦随云渐远",
+          "寒山连远天"
+        ],
+        "down": [
+          "归舟客梦寒",
+          "帆隐路随山",
+          "过村水云连",
+          "渚外云渐远",
+          "晚烟漫远天"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "Best balance of two complete readings.",
+      "rhymeLabel": "十一安 · → 晚 烟 漫 远 天 · ↓ 寒 山 连 远 天",
+      "editorial": {
+        "strength": "Two fluent, distinct progressions through a shared river scene; no repeated full line.",
+        "weakness": "帆隐路随山 is compressed; 客路水云漫 is atmospheric rather than sharply observed.",
+        "parentTier": "select"
+      },
+      "curation": {
+        "status": "Selected",
+        "short": "Best balance of two complete readings.",
+        "reason": "The two readings reorganize a shared scene into different lyric movements: observation opens into dream across; the cold dream frames an outward view down. Both sustain the scene with relatively little explanatory repair. It narrowly leads 暮归, rather than decisively defeating it.",
+        "weakness": "帆隐路随山 is the weakest seam: 帆隐／路随山 changes subject abruptly. 客路水云漫 supplies atmosphere more than a precise observation.",
+        "reading": "Across: a returning sail, village haze, water and clouds, a receding dream, distant mountains. Down: a cold traveler’s dream opens outward into sails, route, village, clouds and evening haze. The text does not say the traveler changes to a land route."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "R02",
+      "title": "暮归",
+      "titleNote": "Collection title; originally labelled Formal scaffold.",
+      "collection": "rhyming_pair",
+      "origin": "earlier_rhyming_round",
+      "rows": [
+        "孤舟向暮山",
+        "舟中风雨寒",
+        "向风望归雁",
+        "暮雨归家难",
+        "滩寒帆晚还"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "十一安",
+        "finals": [
+          "an",
+          "ian",
+          "uan",
+          "üan"
+        ],
+        "across": [
+          "shān",
+          "hán",
+          "yàn",
+          "nán",
+          "huán"
+        ],
+        "down": [
+          "tān",
+          "hán",
+          "fān",
+          "wǎn",
+          "huán"
+        ],
+        "compliance": "pass"
+      },
+      "source": "../rhyming-2d-poems.md",
+      "readings": {
+        "right": [
+          "孤舟向暮山",
+          "舟中风雨寒",
+          "向风望归雁",
+          "暮雨归家难",
+          "滩寒帆晚还"
+        ],
+        "down": [
+          "孤舟向暮滩",
+          "舟中风雨寒",
+          "向风望归帆",
+          "暮雨归家晚",
+          "山寒雁难还"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 9,
+        "distinctSupported": 9,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "Near-tie; the changed ending does real work.",
+      "rhymeLabel": "十一安 · → 山 寒 雁 难 还 · ↓ 滩 寒 帆 晚 还",
+      "editorial": {
+        "strength": "Genuine exchange between geese and sails, human delay and avian difficulty.",
+        "weakness": "Mostly matching sentence skeletons; 暮滩 and 滩寒帆晚还 feel constructed.",
+        "parentTier": "reserve"
+      },
+      "curation": {
+        "status": "Selected",
+        "short": "Near-tie; the changed ending does real work.",
+        "reason": "Homeward difficulty and delay form a coherent situation in both readings. Watching geese becomes watching sails; the final difficulty shifts from human homecoming to the geese. One peer ranked it first for this more consequential closing contrast.",
+        "weakness": "滩寒帆晚还 is compressed and partly repeats the preceding cold and delay; 暮滩 is less settled diction than 暮山. The two poems retain very similar syntax.",
+        "reading": "难 is nán, difficult; 还 is huán, return. A difficult homecoming followed by a late return is not a contradiction. 雁难还 does not mean return is impossible."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "R03",
+      "title": "旧楼",
+      "titleNote": "Collection title; originally labelled Old friends and an old building.",
+      "collection": "rhyming_pair",
+      "origin": "earlier_rhyming_round",
+      "rows": [
+        "相对都念旧",
+        "看图说旧友",
+        "笑问楼谁守",
+        "如故不嫌旧",
+        "旧友修旧楼"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "十欧",
+        "finals": [
+          "ou",
+          "iou"
+        ],
+        "across": [
+          "jiù",
+          "yǒu",
+          "shǒu",
+          "jiù",
+          "lóu"
+        ],
+        "down": [
+          "jiù",
+          "yǒu",
+          "xiū",
+          "jiù",
+          "lóu"
+        ],
+        "compliance": "pass"
+      },
+      "source": "../rhyming-2d-poems.md",
+      "readings": {
+        "right": [
+          "相对都念旧",
+          "看图说旧友",
+          "笑问楼谁守",
+          "如故不嫌旧",
+          "旧友修旧楼"
+        ],
+        "down": [
+          "相看笑如旧",
+          "对图问故友",
+          "都说楼不修",
+          "念旧谁嫌旧",
+          "旧友守旧楼"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Reserve",
+      "shortAssessment": "Concrete repair/guarding contrast; repetitive wording.",
+      "rhymeLabel": "十欧 · → 旧 友 守 旧 楼 · ↓ 旧 友 修 旧 楼",
+      "editorial": {
+        "strength": "Clear difference between repairing and merely guarding an old building.",
+        "weakness": "如故不嫌旧 is weakly attached; heavy 旧 repetition; no justification for 不修 beyond sentiment.",
+        "parentTier": "reserve"
+      },
+      "curation": {
+        "status": "Reserve",
+        "short": "Concrete repair/guarding contrast; repetitive wording.",
+        "reason": "The old friends, image and building form an identifiable human situation. Repairing the building across versus guarding an unrepaired building down gives the form a factual consequence. It remains ahead of the new rhyming studies because its actions connect more securely.",
+        "weakness": "如故不嫌旧 has an indistinct attachment, and 旧 is overworked. The vertical poem says the building is not or will not be repaired; it does not explain why.",
+        "reading": "Do not turn 不修 into opposition to demolition, historically sensitive restoration, or secret repair. Those stories are not in the words."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "S01",
+      "title": "留一间",
+      "collection": "same_poem_square",
+      "origin": "earlier_fresh_round",
+      "rows": [
+        "我说家还在",
+        "说屋里有人",
+        "家里留一间",
+        "还有一人等",
+        "在人间等你"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "source": "../fresh-2d-poems-audit.md",
+      "readings": {
+        "right": [
+          "我说家还在",
+          "说屋里有人",
+          "家里留一间",
+          "还有一人等",
+          "在人间等你"
+        ],
+        "down": [
+          "我说家还在",
+          "说屋里有人",
+          "家里留一间",
+          "还有一人等",
+          "在人间等你"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 5,
+        "distinctSupported": 5,
+        "transposeSymmetric": true,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "Smoothest sustained progression in the group.",
+      "rhymeLabel": "One poem · → = ↓ · rhyme not required",
+      "editorial": {
+        "strength": "Home narrows into a room and a waiting person, then 人间 enlarges the closing promise.",
+        "weakness": "说屋里有人 is preparatory; one omitted 房 is normal contextual ellipsis.",
+        "parentTier": "select"
+      },
+      "curation": {
+        "status": "Selected",
+        "short": "Smoothest sustained progression in the group.",
+        "reason": "Home narrows into a room and a waiting person before 人间 expands the final promise. The contextual omission of 房 in 留一间 is ordinary, not a repair. It remains an excellent companion to the more sharply particular 认人.",
+        "weakness": "说屋里有人 is mostly preparatory and repeats the reassurance. The scene is less individual than the top-ranked entry.",
+        "reading": "An available room and someone waiting are explicit. Death or permanent separation is not."
+      },
+      "formLabel": "One poem · → = ↓"
+    },
+    {
+      "id": "S02",
+      "title": "想听你笑",
+      "collection": "same_poem_square",
+      "origin": "earlier_fresh_round",
+      "rows": [
+        "我想听你笑",
+        "想起你和我",
+        "听你骂我傻",
+        "你和我一样",
+        "笑我傻样儿"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "source": "../fresh-2d-poems-audit.md",
+      "readings": {
+        "right": [
+          "我想听你笑",
+          "想起你和我",
+          "听你骂我傻",
+          "你和我一样",
+          "笑我傻样儿"
+        ],
+        "down": [
+          "我想听你笑",
+          "想起你和我",
+          "听你骂我傻",
+          "你和我一样",
+          "笑我傻样儿"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 5,
+        "distinctSupported": 5,
+        "transposeSymmetric": true,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "A convincing teasing voice; useful tonal variety.",
+      "rhymeLabel": "One poem · → = ↓ · rhyme not required",
+      "editorial": {
+        "strength": "Distinct colloquial human voice and reciprocal teasing; the mirror form fits the exchange.",
+        "weakness": "笑我傻样儿 is clipped and regionally marked; 儿 is a written character, not necessarily its own syllable.",
+        "parentTier": "select"
+      },
+      "curation": {
+        "status": "Selected",
+        "short": "A convincing teasing voice; useful tonal variety.",
+        "reason": "The wish to hear laughter develops into remembered teasing. The mutuality of 你和我 suits the symmetric form, and the colloquial voice distinguishes it from the more conventional 候归.",
+        "weakness": "笑我傻样儿 is clipped and regionally marked. 想起你和我 is broad rather than concrete. These are limits of register and precision, not automatic grammatical failures.",
+        "reading": "Laughter supports an affectionate reading of 骂, without making it the only possible reading. 儿 occupies one written cell even if pronounced as erhua."
+      },
+      "formLabel": "One poem · → = ↓"
+    },
+    {
+      "id": "S03",
+      "title": "候归",
+      "collection": "same_poem_square",
+      "origin": "earlier_initial_round",
+      "rows": [
+        "我等你回家",
+        "等月归山后",
+        "你归门自开",
+        "回山自种桃",
+        "家后开桃花"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "source": "../2d-poems.md",
+      "readings": {
+        "right": [
+          "我等你回家",
+          "等月归山后",
+          "你归门自开",
+          "回山自种桃",
+          "家后开桃花"
+        ],
+        "down": [
+          "我等你回家",
+          "等月归山后",
+          "你归门自开",
+          "回山自种桃",
+          "家后开桃花"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 5,
+        "distinctSupported": 5,
+        "transposeSymmetric": true,
+        "rotationSymmetric": false
+      },
+      "status": "Reserve",
+      "shortAssessment": "Warm welcome; a looser jump into rural life.",
+      "rhymeLabel": "One poem · → = ↓ · rhyme not required",
+      "editorial": {
+        "strength": "Plain hospitality develops into a longer imagined life of return, planting, and blossom.",
+        "weakness": "回山自种桃 jumps into an implied future; less controlled than 留一间.",
+        "parentTier": "reserve"
+      },
+      "curation": {
+        "status": "Reserve",
+        "short": "Warm welcome; a looser jump into rural life.",
+        "reason": "The opening welcome gains physical form in the opening door and flowers behind the house. It reads coherently, but is less individual and less tightly shaped than the higher-ranked same-poem squares.",
+        "weakness": "回山自种桃 moves from immediate return into a more general future of rural living. The planting and blooming need not happen on the same night.",
+        "reading": "The self-opening door is a small personification of welcome. No additional narrative is necessary."
+      },
+      "formLabel": "One poem · → = ↓"
+    },
+    {
+      "id": "F01",
+      "title": "长巷",
+      "collection": "four_direction",
+      "origin": "earlier_initial_round",
+      "rows": [
+        "长夜人归晚",
+        "巷静来客归",
+        "人思又思人",
+        "归客来静巷",
+        "晚归人夜长"
+      ],
+      "directions": [
+        "right",
+        "down",
+        "left",
+        "up"
+      ],
+      "source": "../2d-poems.md",
+      "readings": {
+        "right": [
+          "长夜人归晚",
+          "巷静来客归",
+          "人思又思人",
+          "归客来静巷",
+          "晚归人夜长"
+        ],
+        "down": [
+          "长巷人归晚",
+          "夜静思客归",
+          "人来又来人",
+          "归客思静夜",
+          "晚归人巷长"
+        ],
+        "left": [
+          "晚归人夜长",
+          "归客来静巷",
+          "人思又思人",
+          "巷静来客归",
+          "长夜人归晚"
+        ],
+        "up": [
+          "晚归人巷长",
+          "归客思静夜",
+          "人来又来人",
+          "夜静思客归",
+          "长巷人归晚"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": true
+      },
+      "status": "Reserve",
+      "shortAssessment": "Smoother than the more ambitious dialogue experiment.",
+      "rhymeLabel": "Four cardinal readings · → ↓ ← ↑ · rhyme not required",
+      "editorial": {
+        "strength": "Time and distance exchange roles: 长夜/夜长 versus 长巷/巷长. Every reversed line is an already-tested forward line.",
+        "weakness": "Repeated people/return/waiting language. Reversal reorders the same five lines rather than making four wholly new poems.",
+        "parentTier": "select_with_qualification"
+      },
+      "curation": {
+        "status": "Reserve",
+        "short": "Smoother than the more ambitious dialogue experiment.",
+        "reason": "The exchange between 长夜/夜长 and 长巷/巷长 gives time and distance a useful relation. It ranks ahead of 未完的对话 here because the weakest reading is smoother and the setting more concrete.",
+        "weakness": "人思又思人 and 人来又来人 show the repetitive mechanism. Its reversals are reordered forward lines rather than four independently new sets of lines.",
+        "reading": "归客思静夜 means the returning traveler thinks of or longs for a quiet night; it does not explicitly mean resting during a quiet night."
+      },
+      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+    },
+    {
+      "id": "F02",
+      "title": "未完的对话",
+      "collection": "four_direction",
+      "origin": "earlier_fresh_round",
+      "rows": [
+        "我等你问风",
+        "听雨听山问",
+        "你问不听我",
+        "等风问雨等",
+        "风听我等你"
+      ],
+      "directions": [
+        "right",
+        "down",
+        "left",
+        "up"
+      ],
+      "source": "../fresh-2d-poems-audit.md",
+      "readings": {
+        "right": [
+          "我等你问风",
+          "听雨听山问",
+          "你问不听我",
+          "等风问雨等",
+          "风听我等你"
+        ],
+        "down": [
+          "我听你等风",
+          "等雨问风听",
+          "你听不问我",
+          "问山听雨等",
+          "风问我等你"
+        ],
+        "left": [
+          "风问你等我",
+          "问山听雨听",
+          "我听不问你",
+          "等雨问风等",
+          "你等我听风"
+        ],
+        "up": [
+          "风等你听我",
+          "听风问雨等",
+          "我问不听你",
+          "等雨听山问",
+          "你等我问风"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 20,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Workshop",
+      "shortAssessment": "Most adventurous use of four directions; uneven fluency.",
+      "rhymeLabel": "Four cardinal readings · → ↓ ← ↑ · rhyme not required",
+      "editorial": {
+        "strength": "Four distinct directional readings change asking, listening, and waiting between 我 and 你.",
+        "weakness": "Terminal one-word imperatives such as 问 and 听 feel arranged; punctuation is essential.",
+        "parentTier": "experiment"
+      },
+      "punctuation": {
+        "right": [
+          "我等，你问风。",
+          "听雨，听山，问。",
+          "你问，不听我。",
+          "等风，问雨，等。",
+          "风听，我等你。"
+        ],
+        "down": [
+          "我听，你等风。",
+          "等雨，问风，听。",
+          "你听，不问我。",
+          "问山，听雨，等。",
+          "风问，我等你。"
+        ],
+        "left": [
+          "风问，你等我。",
+          "问山，听雨，听。",
+          "我听，不问你。",
+          "等雨，问风，等。",
+          "你等，我听风。"
+        ],
+        "up": [
+          "风等，你听我。",
+          "听风，问雨，等。",
+          "我问，不听你。",
+          "等雨，听山，问。",
+          "你等，我问风。"
+        ]
+      },
+      "curation": {
+        "status": "Workshop",
+        "short": "Most adventurous use of four directions; uneven fluency.",
+        "reason": "As punctuated free verse, the changes between asking without listening and listening without asking genuinely alter the human relation. One peer narrowly preferred it to 长巷 for that dramatic effect. The present general-reading order gives fluency greater weight.",
+        "weakness": "Sequences such as 听雨，听山，问 end in arranged-sounding one-word commands. The twenty distinct strings are not twenty equally strong lines. Punctuation is essential.",
+        "reading": "Reverse row 5 is 你等，我听风; reverse column 5 is 你等，我问风. Neither reading contains a shared 你我 subject."
+      },
+      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+    },
+    {
+      "id": "D01",
+      "title": "入山",
+      "collection": "unrhymed_pair",
+      "origin": "earlier_initial_round",
+      "rows": [
+        "微风入竹林",
+        "雨轻山色深",
+        "入林心自远",
+        "花影自留客",
+        "林深闲客居"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "source": "../2d-poems.md",
+      "readings": {
+        "right": [
+          "微风入竹林",
+          "雨轻山色深",
+          "入林心自远",
+          "花影自留客",
+          "林深闲客居"
+        ],
+        "down": [
+          "微雨入花林",
+          "风轻林影深",
+          "入山心自闲",
+          "竹色自留客",
+          "林深远客居"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "Natural pair with modest but real changes.",
+      "rhymeLabel": "Two poems, no rhyme requirement · → ↓ · rhyme not required",
+      "editorial": {
+        "strength": "Both forward poems are natural compressed scene poems; all five lines change.",
+        "weakness": "Mostly landscape substitutions and habitual poetic diction, not a major difference in thought.",
+        "parentTier": "select"
+      },
+      "curation": {
+        "status": "Selected",
+        "short": "Natural pair with modest but real changes.",
+        "reason": "Both readings sustain a scene and the visitor’s response. 心自远 becomes 心自闲, and 闲客 becomes 远客. The change is not dramatic, but the Chinese is more settled than 梦中辨认.",
+        "weakness": "Much of the imagery is conventional, and several changes are landscape substitutions rather than a new argument.",
+        "reading": "花影自留客 and 竹色自留客 personify the attractions of the setting; no elaborate backstory is required."
+      },
+      "formLabel": "Two poems, no rhyme requirement · → ↓"
+    },
+    {
+      "id": "D02",
+      "title": "梦中辨认",
+      "collection": "unrhymed_pair",
+      "origin": "earlier_fresh_round",
+      "rows": [
+        "我说你仍在",
+        "听你说旧梦",
+        "你在我梦中",
+        "说梦非相见",
+        "梦里我见你"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "source": "../fresh-2d-poems-audit.md",
+      "readings": {
+        "right": [
+          "我说你仍在",
+          "听你说旧梦",
+          "你在我梦中",
+          "说梦非相见",
+          "梦里我见你"
+        ],
+        "down": [
+          "我听你说梦",
+          "说你在梦里",
+          "你说我非我",
+          "仍旧梦相见",
+          "在梦中见你"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "status": "Workshop",
+      "shortAssessment": "A worthwhile identity question with a strained line.",
+      "rhymeLabel": "Two poems, no rhyme requirement · → ↓ · rhyme not required",
+      "editorial": {
+        "strength": "A real move from dream versus reunion to a question about identity.",
+        "weakness": "仍旧梦相见 is strained; do not silently replace it with 在梦中相见.",
+        "parentTier": "experiment"
+      },
+      "curation": {
+        "status": "Workshop",
+        "short": "A worthwhile identity question with a strained line.",
+        "reason": "Dreamed presence versus an actual meeting becomes a question about the dreamed person’s identity. That is a substantial formal idea worth retaining.",
+        "weakness": "仍旧梦相见 is conspicuously compressed, and dream/meeting vocabulary repeats without enough further movement.",
+        "reading": "Dreaming of meeting is the more defensible reading of 梦相见. Do not silently insert 在梦中 to claim that the written syntax is fully effortless."
+      },
+      "formLabel": "Two poems, no rhyme requirement · → ↓"
+    },
+    {
+      "id": "N01",
+      "title": "江边窗光",
+      "collection": "rhyming_pair",
+      "origin": "2026-09-03_material",
+      "rows": [
+        "江光浮西墙",
+        "风在江面上",
+        "拂水帆影晃",
+        "南面船临窗",
+        "墙上晃窗光"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "十三昂",
+        "finals": [
+          "ang",
+          "iang",
+          "uang"
+        ],
+        "across": [
+          "qiáng",
+          "shàng",
+          "huàng",
+          "chuāng",
+          "guāng"
+        ],
+        "down": [
+          "qiáng",
+          "shàng",
+          "huàng",
+          "chuāng",
+          "guāng"
+        ],
+        "compliance": "pass"
+      },
+      "authorWeakness": "浮江帆船晃 is compressed; compass directions feel designed; modest difference in emotional movement.",
+      "readings": {
+        "right": [
+          "江光浮西墙",
+          "风在江面上",
+          "拂水帆影晃",
+          "南面船临窗",
+          "墙上晃窗光"
+        ],
+        "down": [
+          "江风拂南墙",
+          "光在水面上",
+          "浮江帆船晃",
+          "西面影临窗",
+          "墙上晃窗光"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 9,
+        "distinctSupported": 9,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "rhymeLabel": "十三昂 · → 墙 上 晃 窗 光 · ↓ 墙 上 晃 窗 光",
+      "status": "Workshop",
+      "shortAssessment": "Stable physical scene, but cramped syntax.",
+      "curation": {
+        "status": "Workshop",
+        "short": "Stable physical scene, but cramped syntax.",
+        "reason": "The revised scene no longer needs an invented paper painting. Breeze, river light, sails, walls and windows belong to one physical setting. That stability puts it slightly above 寄知己 in the present ranking.",
+        "weakness": "浮江帆船晃 compresses a modifier awkwardly; 西面影临窗 leaves the shadow vague. Compass directions and repeated light descriptions still feel dictated by the crossings.",
+        "reading": "Across starts from river light on a wall and passes through breeze and sail reflection; down starts from wind against a wall and moves through water light and a swaying boat. These are rearranged observations, not sharply different emotional conclusions."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "N02",
+      "title": "姐姐",
+      "titleNote": "Collection title; author called this a near-miss.",
+      "collection": "rhyming_pair",
+      "origin": "2026-09-03_human",
+      "rows": [
+        "姐姐逗我乐",
+        "姐姐我饿了",
+        "笑我够了么",
+        "我怕了姐姐",
+        "饿了么姐姐"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "三鹅",
+        "finals": [
+          "e",
+          "ie",
+          "üe"
+        ],
+        "across": [
+          "lè",
+          "le",
+          "me",
+          "jiě",
+          "jiě"
+        ],
+        "down": [
+          "è",
+          "le",
+          "me",
+          "jiě",
+          "jiě"
+        ],
+        "compliance": "conditional",
+        "caveat": "The displayed pinyin records the intended me. For interrogative 么 used like 吗, [汉典 lists ma](https://zdic.net/hans/%E4%B9%88), separately from its me uses. With ma, both third-line endings fall outside 三鹅. A deliberate me reading fits the pattern, but this is not a robust ordinary-pronunciation pass; it is excluded from strict selection."
+      },
+      "authorWeakness": "The final concern in the horizontal poem arrives abruptly; 姐姐 repetition and grammatical endings pad the rhyme.",
+      "revisionNote": "Uses the author's proposed center-character repair 错→够. Original third lines were 笑我错了么 / 逗我错了么; all other characters unchanged.",
+      "originalRows": [
+        "姐姐逗我乐",
+        "姐姐我饿了",
+        "笑我错了么",
+        "我怕了姐姐",
+        "饿了么姐姐"
+      ],
+      "readings": {
+        "right": [
+          "姐姐逗我乐",
+          "姐姐我饿了",
+          "笑我够了么",
+          "我怕了姐姐",
+          "饿了么姐姐"
+        ],
+        "down": [
+          "姐姐笑我饿",
+          "姐姐我怕了",
+          "逗我够了么",
+          "我饿了姐姐",
+          "乐了么姐姐"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "rhymeLabel": "Conditional 三鹅 · requires question-particle 么 to be read me, not ma",
+      "status": "Workshop",
+      "shortAssessment": "Lively voice; conditional rhyme and an abrupt ending.",
+      "punctuation": {
+        "right": [
+          "姐姐逗我乐。",
+          "姐姐，我饿了。",
+          "笑我，够了么？",
+          "我怕了姐姐。",
+          "饿了么，姐姐？"
+        ],
+        "down": [
+          "姐姐笑我饿。",
+          "姐姐，我怕了。",
+          "逗我，够了么？",
+          "我饿了，姐姐。",
+          "乐了么，姐姐？"
+        ]
+      },
+      "curation": {
+        "status": "Workshop",
+        "short": "Lively voice; conditional rhyme and an abrupt ending.",
+        "reason": "The childlike complaint is more individual than many landscape grids. 逗我乐 becomes 笑我饿, and the vertical poem develops a recognizable protest. Its low strict-selection rank reflects an unresolved rhyme issue as well as the weaker horizontal ending, not a claim that colloquial writing is inferior.",
+        "weakness": "饿了么姐姐 suddenly asks about the sister’s hunger after the speaker’s hunger and fear. A charitable reader must not invent a tender reconciliation. Repeated 姐姐 and grammatical particles also carry much of the rhyme.",
+        "reading": "The final vertical question can sound reproachful: asking whether the sister has had her fun. Sarcasm is an interpretation; a specific abusive incident or reconciliation is not stated."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "N03",
+      "title": "寄知己",
+      "titleNote": "Collection title.",
+      "collection": "rhyming_pair",
+      "origin": "2026-09-03_structure",
+      "rows": [
+        "我为谁写诗",
+        "因君有此意",
+        "你留诗待寄",
+        "写此谁人知",
+        "此笔寄知己"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "rhyme": {
+        "family": "四衣",
+        "finals": [
+          "i",
+          "-i"
+        ],
+        "across": [
+          "shī",
+          "yì",
+          "jì",
+          "zhī",
+          "jǐ"
+        ],
+        "down": [
+          "cǐ",
+          "bǐ",
+          "jì",
+          "zhī",
+          "jǐ"
+        ],
+        "compliance": "pass"
+      },
+      "authorWeakness": "谁有诗谁寄 is grammatical but more proverbial than intimate.",
+      "revisionNote": "Author's final revision includes the parent's suggested 谁→待 at row 3 column 4; the author then independently replaced two characters to make the pen literal.",
+      "readings": {
+        "right": [
+          "我为谁写诗",
+          "因君有此意",
+          "你留诗待寄",
+          "写此谁人知",
+          "此笔寄知己"
+        ],
+        "down": [
+          "我因你写此",
+          "为君留此笔",
+          "谁有诗谁寄",
+          "写此待人知",
+          "诗意寄知己"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 10,
+        "distinctSupported": 10,
+        "transposeSymmetric": false,
+        "rotationSymmetric": false
+      },
+      "rhymeLabel": "四衣 · → 诗 意 寄 知 己 · ↓ 此 笔 寄 知 己",
+      "status": "Workshop",
+      "shortAssessment": "Good pen/feeling contrast; relationships need work.",
+      "punctuation": {
+        "right": [
+          "我为谁写诗？",
+          "因君有此意。",
+          "你留诗待寄，",
+          "写此谁人知？",
+          "此笔寄知己。"
+        ],
+        "down": [
+          "我因你写此，",
+          "为君留此笔。",
+          "谁有诗谁寄；",
+          "写此待人知，",
+          "诗意寄知己。"
+        ]
+      },
+      "curation": {
+        "status": "Workshop",
+        "short": "Good pen/feeling contrast; relationships need work.",
+        "reason": "The final gift changes from the physical 此笔 to intangible 诗意. That is a worthwhile device, and both readings pass the formal checks. Independent review nevertheless found the whole expression less secure than its individual phrases.",
+        "weakness": "你留诗待寄 changes who holds and sends the poem without connecting the roles clearly. 谁有诗谁寄 is grammatical but abruptly becomes a general maxim. Do not invent reciprocal poetry exchanges or a mail-carrying arrangement to fill those gaps.",
+        "reading": "Across asks about purpose and recognition, ending with a pen sent to a confidant. Down states a cause for writing, keeps a pen for the addressee, and ends by sending poetic feeling. This remains an experiment, not a promoted finished pair."
+      },
+      "formLabel": "Two rhyming poems · → ↓"
+    },
+    {
+      "id": "N04",
+      "title": "留客",
+      "collection": "four_direction",
+      "origin": "2026-09-03_reversible",
+      "rows": [
+        "山深归客远",
+        "寒夜人留客",
+        "归人等人归",
+        "客留人夜寒",
+        "远客归深山"
+      ],
+      "directions": [
+        "right",
+        "down",
+        "left",
+        "up"
+      ],
+      "authorWeakness": "客留人 leaves the other person's identity unspecified; reversal reorders the corresponding forward lines.",
+      "punctuation": {
+        "right": [
+          "山深，归客远。",
+          "寒夜，人留客。",
+          "归人等人归。",
+          "客留人，夜寒。",
+          "远客归深山。"
+        ],
+        "down": [
+          "山寒，归客远。",
+          "深夜，人留客。",
+          "归人等人归。",
+          "客留人，夜深。",
+          "远客归寒山。"
+        ],
+        "left": [
+          "远客归深山。",
+          "客留人，夜寒。",
+          "归人等人归。",
+          "寒夜，人留客。",
+          "山深，归客远。"
+        ],
+        "up": [
+          "远客归寒山。",
+          "客留人，夜深。",
+          "归人等人归。",
+          "深夜，人留客。",
+          "山寒，归客远。"
+        ]
+      },
+      "readings": {
+        "right": [
+          "山深归客远",
+          "寒夜人留客",
+          "归人等人归",
+          "客留人夜寒",
+          "远客归深山"
+        ],
+        "down": [
+          "山寒归客远",
+          "深夜人留客",
+          "归人等人归",
+          "客留人夜深",
+          "远客归寒山"
+        ],
+        "left": [
+          "远客归深山",
+          "客留人夜寒",
+          "归人等人归",
+          "寒夜人留客",
+          "山深归客远"
+        ],
+        "up": [
+          "远客归寒山",
+          "客留人夜深",
+          "归人等人归",
+          "深夜人留客",
+          "山寒归客远"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 9,
+        "distinctSupported": 9,
+        "transposeSymmetric": false,
+        "rotationSymmetric": true
+      },
+      "status": "Selected",
+      "shortAssessment": "Reciprocal hospitality gives the reversal a purpose.",
+      "rhymeLabel": "Four cardinal readings · → ↓ ← ↑ · rhyme not required",
+      "curation": {
+        "status": "Selected",
+        "short": "Reciprocal hospitality gives the reversal a purpose.",
+        "reason": "归人等人归 is the strongest central line in this group: being homeward-bound does not end waiting. 人留客 and 客留人 reverse the relation between host and guest. All four orders remain intelligible.",
+        "weakness": "The other person in 客留人 is unspecified. 深/寒 alters atmosphere more than fundamental meaning. Reversal reorders existing lines; there are nine distinct line strings, not twenty new ones.",
+        "reading": "The forward readings end with movement toward mountains; the reverse readings end with the returning traveler distant. 归人 does not establish that someone has already arrived."
+      },
+      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+    },
+    {
+      "id": "N05",
+      "title": "认人",
+      "collection": "same_poem_square",
+      "origin": "2026-09-03_symmetric",
+      "rows": [
+        "奶奶又叫妈",
+        "奶奶认出我",
+        "又认错一回",
+        "叫出一声来",
+        "妈我回来了"
+      ],
+      "directions": [
+        "right",
+        "down"
+      ],
+      "authorWeakness": "叫出一声来 is a connective line; 认出 followed by 认错 requires an intentional correction or ironic reading.",
+      "punctuation": {
+        "right": [
+          "奶奶又叫“妈”。",
+          "奶奶认出我，",
+          "又认错一回。",
+          "叫出一声来：",
+          "“妈，我回来了。”"
+        ],
+        "down": [
+          "奶奶又叫“妈”。",
+          "奶奶认出我，",
+          "又认错一回。",
+          "叫出一声来：",
+          "“妈，我回来了。”"
+        ]
+      },
+      "readings": {
+        "right": [
+          "奶奶又叫妈",
+          "奶奶认出我",
+          "又认错一回",
+          "叫出一声来",
+          "妈我回来了"
+        ],
+        "down": [
+          "奶奶又叫妈",
+          "奶奶认出我",
+          "又认错一回",
+          "叫出一声来",
+          "妈我回来了"
+        ]
+      },
+      "checks": {
+        "fiveByFive": true,
+        "distinctForward": 5,
+        "distinctSupported": 5,
+        "transposeSymmetric": true,
+        "rotationSymmetric": false
+      },
+      "status": "Selected",
+      "shortAssessment": "Most particular human scene and strongest turn.",
+      "rhymeLabel": "One poem · → = ↓ · rhyme not required",
+      "curation": {
+        "status": "Selected",
+        "short": "Most particular human scene and strongest turn.",
+        "reason": "The neighboring 认出 and 认错 briefly offer recognition, then withdraw it; the closing quoted address makes that correction legible. Its specificity and concentrated turn narrowly outweigh 留一间’s smoother, more general reassurance.",
+        "weakness": "叫出一声来 is mainly a bridge into the quotation. 认出→认错 is an intentional correction or irony, not two simultaneously literal claims of correct identification.",
+        "reading": "The last line is read as the grandmother’s speech: 妈，我回来了. The poem does not establish a diagnosis, whether her mother is alive, or an unstated family history."
+      },
+      "formLabel": "One poem · → = ↓"
+    }
+  ],
+  "editorialSummary": "The strongest additions are 《认人》 in the same-poem group and 《留客》 in the reversible group. The earlier 《归舟》 and 《暮归》 still lead the rhyming pair collection. Five additions were retained, but only two new entries earned selection.",
+  "reviewRecord": "Five creators started with no inherited task conversation. They received different briefs: physical scene, ordinary human dialogue, grammatical transformation, symmetric same-poem writing, and reversible writing. Earlier poems and scores were not supplied during creation. Each creator confirmed avoiding shared-file inspection and existing-poem lookup; general pronunciation/rhyme references and scratch checks of their own text were allowed.\n\nReview then used authors from other categories. No peer reviewed their own submission. Reviewers retained their separate creative context; they are not described as blank-context critics.\n\nThe main rhyming reviewer ranked 暮归 ahead of 归舟, valuing the swapped human/bird conclusion. The parent preferred 归舟’s overall movement and weaker-reading fluency. A separate, blind-to-prior-scores tie-break also narrowly preferred 归舟. The final order records a close judgment, not a unanimous or measurable victory.\n\nFor reversible grids, the peer preferred 未完的对话 to 长巷 for its more consequential changes of agency. The final order reverses those two for a general-reading collection, prioritizing smoother language. A misquoted line in that review was checked against the actual grid, withdrawn, and corrected before its reasoning was retained.\n\nA pronunciation check also caught the conditional question-particle rhyme in 姐姐. Its initial author's intended me reading was not silently accepted as an unconditional standard-pronunciation pass. Geometry, literary quality, and pronunciation reliability remain separate judgments.",
+  "peerRanks": {
+    "rhymingFormal": [
+      "R02",
+      "R01",
+      "R03",
+      "N01",
+      "N03",
+      "N02"
+    ],
+    "rhymingLiteraryIgnoringPronunciation": [
+      "R02",
+      "R01",
+      "N02",
+      "R03",
+      "N01",
+      "N03"
+    ],
+    "samePoem": [
+      "N05",
+      "S01",
+      "S02",
+      "S03"
+    ],
+    "reversible": [
+      "N04",
+      "F02",
+      "F01"
+    ],
+    "unrhymedPair": [
+      "D01",
+      "D02"
+    ],
+    "tieBreak": [
+      "R01",
+      "R02"
+    ]
+  }
+}
