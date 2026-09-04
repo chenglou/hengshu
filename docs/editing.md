@@ -11,7 +11,7 @@ Edit the entire [README](../README.md) directly in Markdown. The build never rew
 
 Do not hand-edit `more_poems.md` or `editorial-notes.md`. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
 
-The README embeds each uploaded PNG card immediately after its plain-text title, followed by the copyable text grid. Each poem's `imageUrl` stores its GitHub attachment URL; update its README image manually too. The build uses that URL as a title link in `more_poems.md`. There are no individual Markdown poem pages. The plain-text grids remain in both reading editions.
+Both reading editions embed each uploaded PNG card immediately after its plain-text title. Each poem's `imageUrl` stores its GitHub attachment URL; update its README image manually too. The build embeds the same image in `more_poems.md`, which omits introductory and navigation boilerplate while retaining status/rhyme labels and expandable readings. There are no individual Markdown poem pages. The copyable text grids remain in both reading editions.
 
 Python 3.9 or newer is required; there are no third-party dependencies. The seven featured IDs and the complete collection's category descriptions live in `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py). If you change the featured selection, update both those IDs and the README by hand.
 

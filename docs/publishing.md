@@ -12,7 +12,7 @@
 
 ## Markdown-first publication
 
-The README is the main reading experience: seven bilingual PNG cards under three category headings, each immediately after its title and followed by a searchable, copyable text grid. [more_poems.md](../more_poems.md) offers all 18 grids with expandable readings and title links to the featured PNG cards.
+The README is the main reading experience: seven bilingual PNG cards under three category headings, each immediately after its title and followed by a searchable, copyable text grid. [more_poems.md](../more_poems.md) offers all 18 grids with expandable readings, embedding the seven available PNG cards without introductory or navigation boilerplate.
 
 A custom interactive reader is optional, not a release requirement. The earlier chat preview depends on its host and is not part of this repository.
 

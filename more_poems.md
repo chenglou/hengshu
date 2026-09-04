@@ -1,18 +1,14 @@
 # More poems · 全集
 
-All 18 grids, including the 7 featured in the [README](README.md).
-
-**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. The [editorial notes](docs/editorial-notes.md) record the rankings, reservations, and review history.
-
-[Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · [Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)
-
 ## Rhyming pairs
 
 → and ↓ produce different poems; both rhyme.
 
-### [《归去》](https://github.com/user-attachments/assets/dd7514bb-08a1-4782-b5e2-1234fd3a04eb)
+### 《归去》
 
-Selected · Featured in README · 十一安
+![《归去》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/dd7514bb-08a1-4782-b5e2-1234fd3a04eb)
+
+Selected · 十一安
 
 ```text
 人 归 旧 柳 寒
@@ -39,9 +35,11 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### [《归舟》](https://github.com/user-attachments/assets/1c4c106d-0bb0-4189-ae84-7e16444791ab)
+### 《归舟》
 
-Selected · Featured in README · 十一安
+![《归舟》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/1c4c106d-0bb0-4189-ae84-7e16444791ab)
+
+Selected · 十一安
 
 ```text
 归 帆 过 渚 晚
@@ -68,9 +66,11 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### [《绣愁》](https://github.com/user-attachments/assets/5ce4e33a-f0dd-4775-ac17-ff59b159e77a)
+### 《绣愁》
 
-Selected · Featured in README · 十欧
+![《绣愁》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/5ce4e33a-f0dd-4775-ac17-ff59b159e77a)
+
+Selected · 十欧
 
 ```text
 相 对 方 念 旧
@@ -275,9 +275,11 @@ Workshop · 三鹅 · Conditional rhyme
 
 → and ↓ produce the same poem.
 
-### [《认人》](https://github.com/user-attachments/assets/d01c5e60-a63c-4528-af14-316c486e6f7f)
+### 《认人》
 
-Selected · Featured in README
+![《认人》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/d01c5e60-a63c-4528-af14-316c486e6f7f)
+
+Selected
 
 ```text
 奶 奶 又 叫 妈
@@ -300,9 +302,11 @@ Selected · Featured in README
 
 </details>
 
-### [《留一间》](https://github.com/user-attachments/assets/743bd97c-d378-4eb7-bc4e-f56901ba526e)
+### 《留一间》
 
-Selected · Featured in README
+![《留一间》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/743bd97c-d378-4eb7-bc4e-f56901ba526e)
+
+Selected
 
 ```text
 我 说 家 还 在
@@ -325,9 +329,11 @@ Selected · Featured in README
 
 </details>
 
-### [《想听你笑》](https://github.com/user-attachments/assets/18b54628-e3bc-4cd6-a527-0ddbd24b265b)
+### 《想听你笑》
 
-Selected · Featured in README
+![《想听你笑》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/18b54628-e3bc-4cd6-a527-0ddbd24b265b)
+
+Selected
 
 ```text
 我 想 听 你 笑
@@ -379,9 +385,11 @@ Reserve
 
 Readable in all → ↓ ← ↑ directions.
 
-### [《留客》](https://github.com/user-attachments/assets/b19e4edc-9d72-495c-9ae2-618291202fdb)
+### 《留客》
 
-Selected · Featured in README
+![《留客》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/b19e4edc-9d72-495c-9ae2-618291202fdb)
+
+Selected
 
 ```text
 山 深 归 客 远
@@ -507,7 +515,3 @@ Workshop
 | 梦里我见你 | 在梦中见你 |
 
 </details>
-
----
-
-[Back to the seven-poem selection](README.md) · [Editorial notes and AI review history](docs/editorial-notes.md) · [Earlier experiments](archive/README.md).

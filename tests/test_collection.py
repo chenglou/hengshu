@@ -58,7 +58,7 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(len(set(featured)), len(featured))
         self.assertTrue(set(featured).issubset(complete))
 
-    def test_featured_images_are_embedded_in_readme_and_linked_in_full_edition(self):
+    def test_featured_images_are_embedded_in_both_editions(self):
         _, outputs = build.generated_outputs(self.data)
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
         complete = outputs[ROOT / 'more_poems.md']
@@ -66,9 +66,15 @@ class CollectionTests(unittest.TestCase):
             for p in poems:
                 with self.subTest(poem=p['id']):
                     title = f'《{p["title"]}》'
-                    self.assertIn(f'### {title}\n\n![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})\n\n'
-                                  + build.grid_markdown(p), readme)
-                    self.assertIn(f'### [{title}]({p["imageUrl"]})', complete)
+                    heading_and_image = f'### {title}\n\n![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})'
+                    self.assertIn(heading_and_image + '\n\n' + build.grid_markdown(p), readme)
+                    self.assertIn(heading_and_image, complete)
+
+    def test_full_edition_has_no_intro_or_navigation_boilerplate(self):
+        complete = build.more_poems_markdown(self.data)
+        self.assertTrue(complete.startswith('# More poems · 全集\n\n## Rhyming pairs\n'))
+        self.assertTrue(complete.endswith('</details>\n'))
+        self.assertNotIn('Featured in README', complete)
 
     def test_rejects_missing_or_invalid_image_urls(self):
         for url in (None, 'poems/gui-qu.md', 'https://example.com/image.png'):

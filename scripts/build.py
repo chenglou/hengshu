@@ -230,12 +230,7 @@ def more_poems_markdown(data):
     groups[2] = ('four_direction', 'Omnidirectional poems', groups[2][2])
     groups.append(('unrhymed_pair', 'Unrhymed pairs',
                    '→ and ↓ produce different poems; rhyme is not required.'))
-    out = ['# More poems · 全集',
-           f'All {len(data["poems"])} grids, including the {len(featured)} featured in the [README](README.md).',
-           '**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. '
-           'The [editorial notes](docs/editorial-notes.md) record the rankings, reservations, and review history.',
-           '[Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · '
-           '[Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)']
+    out = ['# More poems · 全集']
     for collection, title, description in groups:
         out.extend(['## ' + title, description])
         for pid in ordered:
@@ -243,16 +238,15 @@ def more_poems_markdown(data):
             if p['collection'] != collection:
                 continue
             labels = [p['status']]
-            if pid in featured:
-                labels.append('Featured in README')
             if p.get('rhyme'):
                 labels.append(p['rhyme']['family'])
                 if p['rhyme']['compliance'] == 'conditional':
                     labels.append('Conditional rhyme')
             title = f'《{p["title"]}》'
+            out.append('### ' + title)
             if pid in featured:
-                title = f'[{title}]({p["imageUrl"]})'
-            out.extend(['### ' + title, ' · '.join(labels), grid_markdown(p)])
+                out.append(f'![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})')
+            out.extend([' · '.join(labels), grid_markdown(p)])
             directions = ['right'] if p['checks']['transposeSymmetric'] else p['directions']
             headers = ['→ = ↓'] if p['checks']['transposeSymmetric'] else [ARROWS[d] for d in directions]
             readings = [p.get('punctuation', {}).get(d, p['readings'][d]) for d in directions]
@@ -265,8 +259,6 @@ def more_poems_markdown(data):
                     expanded.append('**' + ARROWS[direction] + ' rhyme endings:** ' + ' · '.join(endings))
             out.append('<details>\n<summary>Readings: ' + ' / '.join(headers) + '</summary>\n\n'
                        + '\n\n'.join(expanded) + '\n\n</details>')
-    out.extend(['---', '[Back to the seven-poem selection](README.md) · '
-                '[Editorial notes and AI review history](docs/editorial-notes.md) · [Earlier experiments](archive/README.md).'])
     return '\n\n'.join(out) + '\n'
 
 
