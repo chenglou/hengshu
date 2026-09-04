@@ -57,6 +57,43 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(len(set(featured)), len(featured))
         self.assertTrue(set(featured).issubset(complete))
 
+    def test_bilingual_pages_align_every_supported_reading(self):
+        _, outputs = build.generated_outputs(self.data)
+        for _, _, poems in build.public_selection(self.data):
+            for p in poems:
+                with self.subTest(poem=p['id']):
+                    document = outputs[ROOT / 'poems' / (p['english']['slug'] + '.md')]
+                    for direction in p['directions']:
+                        self.assertIn('## ' + build.LABELS[direction], document)
+                    actual = re.findall(r'^\| (.*?) \| (.*?) \|$', document, re.M)
+                    actual = [row for row in actual if row not in [('中文', 'English'), ('---', '---')]]
+                    expected = []
+                    for direction in p['directions']:
+                        chinese = p.get('punctuation', {}).get(direction, p['readings'][direction])
+                        expected.extend((line, p['english']['lines'][raw])
+                                        for line, raw in zip(chinese, p['readings'][direction]))
+                    self.assertEqual(actual, expected)
+
+    def test_rejects_missing_or_empty_english_lines(self):
+        p = self.poem('N04')
+        raw = p['readings']['up'][0]
+        original = p['english']['lines'].pop(raw)
+        with self.assertRaisesRegex(AssertionError, 'English lines do not match'):
+            build.validate(self.data)
+        p['english']['lines'][raw] = ''
+        with self.assertRaisesRegex(AssertionError, 'Empty or multiline English'):
+            build.validate(self.data)
+        p['english']['lines'][raw] = original
+
+    def test_rejects_unsafe_or_duplicate_page_paths(self):
+        p = self.poem('P02')
+        p['english']['slug'] = '../README'
+        with self.assertRaisesRegex(AssertionError, 'Invalid poem-page slug'):
+            build.validate(self.data)
+        p['english']['slug'] = self.poem('R01')['english']['slug']
+        with self.assertRaisesRegex(AssertionError, 'Duplicate poem-page slug'):
+            build.validate(self.data)
+
     def test_rejects_missing_character(self):
         self.poem('P02')['rows'][0] = '人归旧柳'
         with self.assertRaises(AssertionError):

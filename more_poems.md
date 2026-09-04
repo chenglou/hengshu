@@ -6,15 +6,11 @@ All 18 grids, including the 7 featured in the [README](README.md).
 
 [Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · [Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)
 
-Arrows indicate the direction within each line. Keep rows in top-to-bottom order and columns in left-to-right order. No diagonal or arbitrary-path readings are claimed.
-
-Rhyming pairs use modern Mandarin rhyme families, with tones unrestricted. 《姐姐》 is a conditional-rhyme draft, explicitly marked below. The other forms have no rhyme requirement.
-
 ## Rhyming pairs
 
 → and ↓ produce different poems; both rhyme.
 
-### 《归去》
+### [《归去》](poems/gui-qu.md)
 
 Selected · Featured in README · 十一安
 
@@ -43,7 +39,7 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### 《归舟》
+### [《归舟》](poems/gui-zhou.md)
 
 Selected · Featured in README · 十一安
 
@@ -72,7 +68,7 @@ Selected · Featured in README · 十一安
 
 </details>
 
-### 《绣愁》
+### [《绣愁》](poems/xiu-chou.md)
 
 Selected · Featured in README · 十欧
 
@@ -258,8 +254,6 @@ Workshop · 三鹅 · Conditional rhyme
 饿 了 么 姐 姐
 ```
 
-**Rhyme caveat:** The displayed pinyin records the intended me. For interrogative 么 used like 吗, [汉典 lists ma](https://zdic.net/hans/%E4%B9%88), separately from its me uses. With ma, both third-line endings fall outside 三鹅. A deliberate me reading fits the pattern, but this is not a robust ordinary-pronunciation pass; it is excluded from strict selection.
-
 <details>
 <summary>Readings: → / ↓</summary>
 
@@ -281,7 +275,7 @@ Workshop · 三鹅 · Conditional rhyme
 
 → and ↓ produce the same poem.
 
-### 《认人》
+### [《认人》](poems/ren-ren.md)
 
 Selected · Featured in README
 
@@ -306,7 +300,7 @@ Selected · Featured in README
 
 </details>
 
-### 《留一间》
+### [《留一间》](poems/liu-yi-jian.md)
 
 Selected · Featured in README
 
@@ -331,7 +325,7 @@ Selected · Featured in README
 
 </details>
 
-### 《想听你笑》
+### [《想听你笑》](poems/xiang-ting-ni-xiao.md)
 
 Selected · Featured in README
 
@@ -385,7 +379,7 @@ Reserve
 
 Readable in all → ↓ ← ↑ directions.
 
-### 《留客》
+### [《留客》](poems/liu-ke.md)
 
 Selected · Featured in README
 

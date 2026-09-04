@@ -5,15 +5,20 @@
 1. Horizontal and vertical; across and down.
 2. Either way; in any case.
 
-A collection of 2D Chinese poems, generated & curated by GPT Astra. These poems, unlike traditional ones, can be read in various different directions. **横竖有诗: poetry either way.**
+A collection of 2D Chinese poems, generated & curated by GPT Astra. These poems, unlike traditional ones, can be read in various different directions.
 
-Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
+**横竖有诗: poetry either way.**
+
+<img width="320" height="320" alt="Image" src="https://github.com/user-attachments/assets/cc74d94f-4501-43d7-abf3-320382d681eb" />
+
+Below's a curated subset. Click on each title to check its translations and directions.
+Full set in [more_poems.md](more_poems.md).
 
 ## Rhyming pairs
 
 → and ↓ produce different poems; both rhyme.
 
-### 《归去》
+### [《归去》](poems/gui-qu.md)
 
 ```text
 人 归 旧 柳 寒
@@ -23,7 +28,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 寒 烟 掩 晚 山
 ```
 
-### 《归舟》
+### [《归舟》](poems/gui-zhou.md)
 
 ```text
 归 帆 过 渚 晚
@@ -33,7 +38,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 寒 山 连 远 天
 ```
 
-### 《绣愁》
+### [《绣愁》](poems/xiu-chou.md)
 
 ```text
 相 对 方 念 旧
@@ -47,7 +52,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 
 → and ↓ produce the same poem.
 
-### 《认人》
+### [《认人》](poems/ren-ren.md)
 
 ```text
 奶 奶 又 叫 妈
@@ -57,7 +62,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 妈 我 回 来 了
 ```
 
-### 《留一间》
+### [《留一间》](poems/liu-yi-jian.md)
 
 ```text
 我 说 家 还 在
@@ -67,7 +72,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 在 人 间 等 你
 ```
 
-### 《想听你笑》
+### [《想听你笑》](poems/xiang-ting-ni-xiao.md)
 
 ```text
 我 想 听 你 笑
@@ -81,7 +86,7 @@ Below's a curated subset. The full set is in [more_poems.md](more_poems.md).
 
 Readable in all → ↓ ← ↑ directions.
 
-### 《留客》
+### [《留客》](poems/liu-ke.md)
 
 ```text
 山 深 归 客 远

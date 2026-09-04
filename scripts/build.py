@@ -9,8 +9,6 @@ DATA = BASE / 'poems.json'
 HAN = re.compile(r'[\u4e00-\u9fff]')
 LABELS = {'right': 'Across →', 'down': 'Down ↓', 'left': 'Reversed rows ←', 'up': 'Reversed columns ↑'}
 ARROWS = {'right': '→', 'down': '↓', 'left': '←', 'up': '↑'}
-READING_RULES = ('Arrows indicate the direction within each line. Keep rows in top-to-bottom '
-                 'order and columns in left-to-right order. No diagonal or arbitrary-path readings are claimed.')
 PUBLIC_GROUPS = (
     ('rhyming_pair', 'Rhyming pairs', '→ and ↓ produce different poems; both rhyme.',
      ('P02', 'R01', 'P03')),
@@ -61,6 +59,7 @@ def validate(data):
             indexed.extend(section['poemIds'])
     assert sorted(indexed) == sorted(ids), 'Missing or duplicate collection entry'
     strict = conditional = 0
+    page_slugs = []
     for p in data['poems']:
         rows = p['rows']
         assert len(rows) == 5 and all(len(r) == 5 and len(HAN.findall(r)) == 5 for r in rows), p['id']
@@ -98,6 +97,16 @@ def validate(data):
         if p['collection'] == 'rhyming_pair' and p['status'] == 'Selected':
             assert rhyme and rhyme['compliance'] == 'pass', 'Selected rhyming pair must pass: ' + p['id']
             assert rows != cols, 'Selected rhyming pair must have different readings: ' + p['id']
+        english = p.get('english')
+        if english is not None:
+            assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', english['slug']), 'Invalid poem-page slug: ' + p['id']
+            page_slugs.append(english['slug'])
+            assert isinstance(english['title'], str) and english['title'].strip(), 'Missing English title: ' + p['id']
+            source_lines = {line for lines in expected.values() for line in lines}
+            assert set(english['lines']) == source_lines, 'English lines do not match supported readings: ' + p['id']
+            assert all(isinstance(line, str) and line.strip() and '\n' not in line and '\r' not in line
+                       for line in english['lines'].values()), 'Empty or multiline English translation: ' + p['id']
+    assert len(page_slugs) == len(set(page_slugs)), 'Duplicate poem-page slug'
     return {'entries': len(ids), 'newEntries': sum(is_new(p, data) for p in data['poems']),
             'selectedRhymingPairs': sum(p['collection'] == 'rhyming_pair' and p['status'] == 'Selected' for p in data['poems']),
             'strictRhymePairs': strict, 'conditionalRhymePairs': conditional,
@@ -187,6 +196,7 @@ def public_selection(data):
         poems = [by_id[pid] for pid in ids]
         for p in poems:
             assert p['collection'] == collection and p['status'] == 'Selected', 'Invalid README selection: ' + p['id']
+            assert p.get('english'), 'Featured poem requires English translations: ' + p['id']
             if collection == 'rhyming_pair':
                 assert p['rhyme']['compliance'] == 'pass' and not p['checks']['transposeSymmetric']
             elif collection == 'same_poem_square':
@@ -205,6 +215,26 @@ def validate_readme(data, current):
                                 'Update README.md manually to match the canonical poems and featured IDs.')
 
 
+def table_cell(text):
+    return text.replace('|', '\\|')
+
+
+def poem_markdown(p):
+    english = p['english']
+    out = [f'# 《{p["title"]}》 · {english["title"]}',
+           '[← README selection](../README.md) · [All poems](../more_poems.md)',
+           p['formLabel'], grid_markdown(p)]
+    if p.get('rhyme'):
+        out.append('**Chinese rhyme:** ' + p['rhyme']['family'] + ' (' + ' / '.join(p['rhyme']['finals']) + ').')
+    for direction in p['directions']:
+        chinese = p.get('punctuation', {}).get(direction, p['readings'][direction])
+        table = ['| 中文 | English |', '| --- | --- |']
+        table.extend('| ' + table_cell(line) + ' | ' + table_cell(english['lines'][raw]) + ' |'
+                     for line, raw in zip(chinese, p['readings'][direction]))
+        out.extend(['## ' + LABELS[direction], '\n'.join(table)])
+    return '\n\n'.join(out) + '\n'
+
+
 def more_poems_markdown(data):
     by_id = {p['id']: p for p in data['poems']}
     featured = {p['id'] for _, _, poems in public_selection(data) for p in poems}
@@ -221,10 +251,7 @@ def more_poems_markdown(data):
            '**Selected** means recommended; **Reserve** means secondary; **Workshop** marks an experiment with unresolved weaknesses. '
            'The [editorial notes](docs/editorial-notes.md) record the rankings, reservations, and review history.',
            '[Rhyming pairs](#rhyming-pairs) · [Symmetric squares](#symmetric-squares) · '
-           '[Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)',
-           READING_RULES,
-           'Rhyming pairs use modern Mandarin rhyme families, with tones unrestricted. '
-           '《姐姐》 is a conditional-rhyme draft, explicitly marked below. The other forms have no rhyme requirement.']
+           '[Omnidirectional poems](#omnidirectional-poems) · [Unrhymed pairs](#unrhymed-pairs)']
     for collection, title, description in groups:
         out.extend(['## ' + title, description])
         for pid in ordered:
@@ -238,9 +265,10 @@ def more_poems_markdown(data):
                 labels.append(p['rhyme']['family'])
                 if p['rhyme']['compliance'] == 'conditional':
                     labels.append('Conditional rhyme')
-            out.extend([f'### 《{p["title"]}》', ' · '.join(labels), grid_markdown(p)])
-            if p.get('rhyme', {}).get('caveat'):
-                out.append('**Rhyme caveat:** ' + p['rhyme']['caveat'])
+            title = f'《{p["title"]}》'
+            if pid in featured:
+                title = f'[{title}](poems/{p["english"]["slug"]}.md)'
+            out.extend(['### ' + title, ' · '.join(labels), grid_markdown(p)])
             directions = ['right'] if p['checks']['transposeSymmetric'] else p['directions']
             headers = ['→ = ↓'] if p['checks']['transposeSymmetric'] else [ARROWS[d] for d in directions]
             readings = [p.get('punctuation', {}).get(d, p['readings'][d]) for d in directions]
@@ -262,10 +290,14 @@ def generated_outputs(data):
     assert data['status'] == 'complete', 'Do not publish unfinished rankings'
     checks = validate(data)
     validate_readme(data, (ROOT / 'README.md').read_text(encoding='utf-8'))
-    return checks, {
+    outputs = {
         ROOT / 'more_poems.md': more_poems_markdown(data),
         ROOT / 'docs' / 'editorial-notes.md': editorial_markdown(data, checks),
     }
+    for _, _, poems in public_selection(data):
+        for p in poems:
+            outputs[BASE / (p['english']['slug'] + '.md')] = poem_markdown(p)
+    return checks, outputs
 
 
 def main():

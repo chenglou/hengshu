@@ -6,10 +6,11 @@ Edit [poems/poems.json](../poems/poems.json). Running `python3 scripts/build.py`
 
 - [More poems: all 18 grids](../more_poems.md)
 - [Editorial notes: rankings, commentary, and review history](editorial-notes.md)
+- Seven individual poem pages in `poems/`, linked from the README titles, with every supported reading and line-by-line English
 
 Edit the entire [README](../README.md) directly in Markdown. The build never rewrites it and requires no markers. It reads the fenced poem grids to check that they match the featured selection in the canonical data; ordinary prose edits do not affect that check.
 
-Do not hand-edit `more_poems.md` or `editorial-notes.md`. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
+Do not hand-edit `more_poems.md`, `editorial-notes.md`, or the individual poem pages. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
 
 Python 3.9 or newer is required; there are no third-party dependencies. The seven featured IDs and the complete collection's category descriptions live in `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py). If you change the featured selection, update both those IDs and the README by hand.
 
@@ -34,6 +35,12 @@ Any rhyming pair marked `Selected` must have a passing rhyme check and different
 For editorial review, read each direction as a complete poem before comparing crossings. Attend first to the less fluent reading, then to specificity, progression, and what changes in meaning. Ordinary poetic ellipsis and metaphor are allowed; added backstories are not evidence that a line works.
 
 The earlier forms have different rules. A symmetric square repeats one poem, while a reversible grid may rearrange already-used lines. Preserve those distinctions instead of inflating the number of independent poems.
+
+## English translations
+
+Each featured poem has an `english` object in the canonical JSON: a stable page `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. All supported directions are displayed on the poem's page with Chinese on the left and English on the right.
+
+Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the poem pages. The checks verify complete line coverage and table alignment. If a Chinese line changes, update its translation key and wording too.
 
 Run both checks after editing:
 

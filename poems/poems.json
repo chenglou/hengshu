@@ -126,7 +126,24 @@
         "weakness": "帆隐路随山 is the weakest seam: 帆隐／路随山 changes subject abruptly. 客路水云漫 supplies atmosphere more than a precise observation.",
         "reading": "Across: a returning sail, village haze, water and clouds, a receding dream, distant mountains. Down: a cold traveler’s dream opens outward into sails, route, village, clouds and evening haze. The text does not say the traveler changes to a land route."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "gui-zhou",
+        "title": "The Returning Boat",
+        "lines": {
+          "归帆过渚晚": "A returning sail passes the islet at dusk.",
+          "舟隐村外烟": "The boat is hidden in haze beyond the village.",
+          "客路水云漫": "Along the traveler’s route, water and clouds spread wide.",
+          "梦随云渐远": "The dream grows distant with the clouds.",
+          "寒山连远天": "Cold mountains meet the distant sky.",
+          "归舟客梦寒": "On the returning boat, the traveler’s dream is cold.",
+          "帆隐路随山": "The sail is hidden; the route follows the mountains.",
+          "过村水云连": "Past the village, water and clouds meet.",
+          "渚外云渐远": "Beyond the islet, clouds grow distant.",
+          "晚烟漫远天": "Evening haze spreads across the distant sky."
+        },
+        "note": "“Route” leaves the means of travel unspecified. The semicolon in “The sail is hidden; the route follows the mountains” preserves the Chinese line’s abrupt change of subject."
+      }
     },
     {
       "id": "R02",
@@ -321,7 +338,18 @@
         "weakness": "说屋里有人 is mostly preparatory and repeats the reassurance. The scene is less individual than the top-ranked entry.",
         "reading": "An available room and someone waiting are explicit. Death or permanent separation is not."
       },
-      "formLabel": "One poem · → = ↓"
+      "formLabel": "One poem · → = ↓",
+      "english": {
+        "slug": "liu-yi-jian",
+        "title": "A Room for You",
+        "lines": {
+          "我说家还在": "I say home is still there,",
+          "说屋里有人": "say someone is inside.",
+          "家里留一间": "At home, a room is kept for you;",
+          "还有一人等": "someone is still waiting,",
+          "在人间等你": "waiting for you in this world."
+        }
+      }
     },
     {
       "id": "S02",
@@ -370,7 +398,19 @@
         "weakness": "笑我傻样儿 is clipped and regionally marked. 想起你和我 is broad rather than concrete. These are limits of register and precision, not automatic grammatical failures.",
         "reading": "Laughter supports an affectionate reading of 骂, without making it the only possible reading. 儿 occupies one written cell even if pronounced as erhua."
       },
-      "formLabel": "One poem · → = ↓"
+      "formLabel": "One poem · → = ↓",
+      "english": {
+        "slug": "xiang-ting-ni-xiao",
+        "title": "I Want to Hear You Laugh",
+        "lines": {
+          "我想听你笑": "I want to hear you laugh,",
+          "想起你和我": "remembering you and me,",
+          "听你骂我傻": "hearing you call me a fool.",
+          "你和我一样": "You’re just like me,",
+          "笑我傻样儿": "laughing at how silly I look."
+        },
+        "note": "“Call me a fool” leaves room for either teasing or sharper force. The laughter invites an affectionate reading without requiring it."
+      }
     },
     {
       "id": "S03",
@@ -1031,7 +1071,23 @@
         "weakness": "The other person in 客留人 is unspecified. 深/寒 alters atmosphere more than fundamental meaning. Reversal reorders existing lines; there are nine distinct line strings, not twenty new ones.",
         "reading": "The forward readings end with movement toward mountains; the reverse readings end with the returning traveler distant. 归人 does not establish that someone has already arrived."
       },
-      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+      "formLabel": "Four cardinal readings · → ↓ ← ↑",
+      "english": {
+        "slug": "liu-ke",
+        "title": "Asking a Guest to Stay",
+        "lines": {
+          "山深归客远": "Deep mountains; a homeward traveler far away.",
+          "寒夜人留客": "On a cold night, someone asks a guest to stay.",
+          "归人等人归": "A homeward traveler waits for someone to return.",
+          "客留人夜寒": "The guest asks someone to stay; the night is cold.",
+          "远客归深山": "A traveler from afar returns deep into the mountains.",
+          "山寒归客远": "Cold mountains; a homeward traveler far away.",
+          "深夜人留客": "Late at night, someone asks a guest to stay.",
+          "客留人夜深": "The guest asks someone to stay; the night is late.",
+          "远客归寒山": "A traveler from afar returns to the cold mountains."
+        },
+        "note": "The reverse readings reorder the corresponding forward lines. “Someone” preserves the unspecified person in 人留客 and 客留人; “homeward traveler” does not imply that the person has already arrived."
+      }
     },
     {
       "id": "N05",
@@ -1096,7 +1152,19 @@
         "weakness": "叫出一声来 is mainly a bridge into the quotation. 认出→认错 is an intentional correction or irony, not two simultaneously literal claims of correct identification.",
         "reading": "The last line is read as the grandmother’s speech: 妈，我回来了. The poem does not establish a diagnosis, whether her mother is alive, or an unstated family history."
       },
-      "formLabel": "One poem · → = ↓"
+      "formLabel": "One poem · → = ↓",
+      "english": {
+        "slug": "ren-ren",
+        "title": "Recognition",
+        "lines": {
+          "奶奶又叫妈": "Grandma calls out “Mom” again.",
+          "奶奶认出我": "Grandma recognizes me—",
+          "又认错一回": "and gets it wrong again.",
+          "叫出一声来": "She calls out:",
+          "妈我回来了": "“Mom, I’m home.”"
+        },
+        "note": "The apparent recognition is immediately withdrawn. The final quotation is Grandma’s speech; no diagnosis or further family history is supplied by the poem."
+      }
     },
     {
       "id": "P01",
@@ -1293,7 +1361,21 @@
         "weakness": "去鸟枕青烟 combines departure with repose more daringly than 归鸟枕青烟. Three full lines are shared; this is a restrained change of perspective, not two independent stories.",
         "reading": "枕青烟 is a visual metaphor, not a claim that birds literally sleep on mist. 旧枕重帘掩 places the old pillow behind layered curtains. 柳青／帘外晚 juxtaposes the green willow and dusk outside the curtain. No bereavement, abandoned marriage, or subsequent bird landing is specified."
       },
-      "selectionNote": "The person returns while the bird leaves; turn the square and the person leaves while the bird returns. The unchanged pillow and curtains make the exchange matter. Three shared lines act as a fixed scene against which presence and absence change."
+      "selectionNote": "The person returns while the bird leaves; turn the square and the person leaves while the bird returns. The unchanged pillow and curtains make the exchange matter. Three shared lines act as a fixed scene against which presence and absence change.",
+      "english": {
+        "slug": "gui-qu",
+        "title": "Homeward",
+        "lines": {
+          "人归旧柳寒": "Someone returns; the old willow is cold.",
+          "去鸟枕青烟": "A departing bird takes blue-green haze for a pillow.",
+          "旧枕重帘掩": "Layered curtains veil the old pillow.",
+          "柳青帘外晚": "The willow is green; beyond the curtain, dusk.",
+          "寒烟掩晚山": "Cold haze veils the evening hills.",
+          "人去旧柳寒": "Someone leaves; the old willow is cold.",
+          "归鸟枕青烟": "A returning bird takes blue-green haze for a pillow."
+        },
+        "note": "The person and bird exchange return and departure; the other three lines stay unchanged. “Pillow” and “veil” retain the repeated images. The bird’s pillow is a metaphor; 青 spans blue and green."
+      }
     },
     {
       "id": "P03",
@@ -1387,7 +1469,24 @@
       "selectionNote": "Recognizing an old friend in an image becomes recognizing the limits of an art. The thin hand nevertheless stitches the old sorrow. The two readings hold effort and difficulty together; they do not cancel each other out.",
       "inspiredBy": [
         "R03"
-      ]
+      ],
+      "english": {
+        "slug": "xiu-chou",
+        "title": "Embroidering Sorrow",
+        "lines": {
+          "相对方念旧": "Face to face, only then do I recall old times.",
+          "看图识旧友": "I recognize an old friend in the image.",
+          "故问愁谁有": "So I ask: who carries sorrow?",
+          "人老难如旧": "With age, it is hard to be as before;",
+          "瘦手绣旧愁": "A thin hand embroiders old sorrow.",
+          "相看故人瘦": "I look at an old friend, grown thin;",
+          "对图问老手": "Facing the image, I ask a practiced hand,",
+          "方识愁难绣": "only then understanding how hard sorrow is to embroider.",
+          "念旧谁如旧": "Remembering old times—who is still as before?",
+          "旧友有旧愁": "An old friend carries old sorrow."
+        },
+        "note": "The encounter is left open: it need not be a physical reunion, and the image need not be a photograph. The “practiced hand” is an experienced practitioner, not necessarily the old friend. Embroidering sorrow and finding it hard to embroider remain distinct."
+      }
     }
   ],
   "editorialSummary": "The selected rhyming edition now contains five grids: new 归去、绣愁、留饮 alongside the earlier 归舟、暮归. No earlier grid has been overwritten. The earlier same-poem and reversible selections remain in Collection 2, clearly separated from the all-line-rhyming requirement.",
