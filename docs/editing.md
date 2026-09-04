@@ -4,21 +4,23 @@ Run commands from the repository root. The [creation guide](editorial-notes.md) 
 
 ## Setup
 
-Use Python 3.9+ for validation and Markdown generation, and Node 20.9+ for cards:
+Use [Bun](https://bun.sh/) 1.4+ for the TypeScript scripts and tests:
 
 ```sh
-npm ci
-npx playwright install chromium
+bun install --frozen-lockfile
+bunx --bun playwright install chromium
 ```
 
-On Linux, `npx playwright install --with-deps chromium` can install browser system dependencies too. No Python packages are required.
+On Linux, `bunx --bun playwright install --with-deps chromium` can install browser system dependencies too. The scripts run directly; no compilation step is needed.
+
+The native TypeScript 7 CLI is installed as `@typescript/native`; `typescript` stays on 5 for tooling APIs. After changing either dependency, verify `bun tsc --version` still reports 7.
 
 ## Check a draft
 
 A draft JSON object needs `rows` (five five-character strings) and `collection`: `rhyming_pair`, `same_poem_square`, `four_direction`, or `unrhymed_pair`. `directions` defaults to the form's readings. For a rhyming pair, also supply `rhyme` with `family`, five contextual pinyin readings in each of `across` and `down`, and `compliance` (`pass` or `conditional`). Conditional rhyme requires a `caveat` and cannot be Selected.
 
 ```sh
-python3 scripts/build.py --draft path/to/draft.json
+bun scripts/build.ts --draft path/to/draft.json
 ```
 
 This checks one draft without changing the collection and prints its computed readings. English is optional at this stage. The checked endings in [poems/rhymes.json](../poems/rhymes.json) are an editable reference, not a complete pronunciation dictionary. Review new endings in context before adding their pronunciation and family; disclose ambiguity instead of choosing a convenient sound.
@@ -32,8 +34,8 @@ For cards, the draft also needs an `id`, Chinese `title`, and `english` with an 
 ## Render the picture
 
 ```sh
-node scripts/render-cards.cjs --input path/to/draft.json --output output/cards
-node scripts/render-cards.cjs --poem P02 --output output/cards
+bun run cards --input path/to/draft.json --output output/cards
+bun run cards --poem P02 --output output/cards
 ```
 
 The first command renders a translated draft; the second renders a collection entry. Use `--palette sage` to try another palette. Inspect every supported reading and the exported PNG. Symmetric cards share one stanza; reverse readings use a line-order note only when that shortcut is exact, otherwise they appear in full. Wrapping fails validation rather than silently shrinking the text.
@@ -45,12 +47,12 @@ Chinese type defaults to Songti SC / Noto Serif SC / SimSun; English uses Georgi
 Upload the PNG to GitHub and put its attachment URL in `imageUrl`. Rerender and reupload after changing the poem or translation; an existing uploaded image does not update itself.
 
 ```sh
-python3 scripts/build.py
-python3 scripts/build.py --check
-python3 -m unittest discover -s tests
-npm test
+bun run build
+bun run check
+bun test
+bun run typecheck
 ```
 
 The build writes only [more_poems.md](../more_poems.md); `--check` reports drift without writing. It does not inspect remote image contents or availability. These two guides are maintained by hand.
 
-Edit the [README](../README.md) manually, preserving its copyable grids. If the featured selection changes, update `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py), the README grids, and their inline image URLs together. Review the diff before committing and pushing.
+Edit the [README](../README.md) manually, preserving its copyable grids. If the featured selection changes, update `PUBLIC_GROUPS` in [scripts/build.ts](../scripts/build.ts), the README grids, and their inline image URLs together. Review the diff before committing and pushing.

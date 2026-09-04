@@ -2,13 +2,24 @@
   "name": "hengshu",
   "private": true,
   "description": "Chinese poem squares and bilingual card rendering",
-  "engines": { "node": ">=20.9.0" },
+  "type": "module",
+  "packageManager": "bun@1.4.0",
+  "engines": { "bun": ">=1.4.0" },
   "scripts": {
-    "cards": "node scripts/render-cards.cjs",
-    "test": "node --test tests/test_renderer.cjs"
+    "build": "bun scripts/build.ts",
+    "check": "bun scripts/build.ts --check",
+    "cards": "bun scripts/render-cards.ts",
+    "test": "bun test",
+    "typecheck": "bun --bun tsc --noEmit"
   },
   "dependencies": {
     "playwright": "1.62.1",
     "sharp": "0.35.4"
-  }
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.0",
+    "@typescript/native": "npm:typescript@7.0.2",
+    "typescript": "5.9.3"
+  },
+  "trustedDependencies": ["sharp"]
 }
