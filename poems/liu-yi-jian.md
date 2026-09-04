@@ -1,7 +1,5 @@
 # 《留一间》 · A Room for You
 
-[← README selection](../README.md) · [All poems](../more_poems.md)
-
 One poem · → = ↓
 
 ```text

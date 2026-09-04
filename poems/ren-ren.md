@@ -1,7 +1,5 @@
 # 《认人》 · Recognition
 
-[← README selection](../README.md) · [All poems](../more_poems.md)
-
 One poem · → = ↓
 
 ```text

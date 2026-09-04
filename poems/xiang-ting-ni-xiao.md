@@ -1,7 +1,5 @@
 # 《想听你笑》 · I Want to Hear You Laugh
 
-[← README selection](../README.md) · [All poems](../more_poems.md)
-
 One poem · → = ↓
 
 ```text

@@ -1,7 +1,5 @@
 # 《归舟》 · The Returning Boat
 
-[← README selection](../README.md) · [All poems](../more_poems.md)
-
 Two rhyming poems · → ↓
 
 ```text

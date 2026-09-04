@@ -1,7 +1,5 @@
 # 《留客》 · Asking a Guest to Stay
 
-[← README selection](../README.md) · [All poems](../more_poems.md)
-
 Four cardinal readings · → ↓ ← ↑
 
 ```text

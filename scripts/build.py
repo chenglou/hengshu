@@ -222,7 +222,6 @@ def table_cell(text):
 def poem_markdown(p):
     english = p['english']
     out = [f'# 《{p["title"]}》 · {english["title"]}',
-           '[← README selection](../README.md) · [All poems](../more_poems.md)',
            p['formLabel'], grid_markdown(p)]
     if p.get('rhyme'):
         out.append('**Chinese rhyme:** ' + p['rhyme']['family'] + ' (' + ' / '.join(p['rhyme']['finals']) + ').')
