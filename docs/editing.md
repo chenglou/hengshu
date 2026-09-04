@@ -11,7 +11,7 @@ Edit the entire [README](../README.md) directly in Markdown. The build never rew
 
 Do not hand-edit `more_poems.md` or `editorial-notes.md`. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
 
-Both reading editions embed each uploaded PNG card immediately after its plain-text title. Each poem's `imageUrl` stores its GitHub attachment URL; update its README image manually too. The build embeds the same image in `more_poems.md`, which omits introductory and navigation boilerplate while retaining status/rhyme labels and expandable readings. There are no individual Markdown poem pages. The copyable text grids remain in both reading editions.
+Both reading editions embed each uploaded PNG card immediately after its plain-text title. Each poem's `imageUrl` stores its GitHub attachment URL; for featured poems, update the README image manually too. The build embeds all 18 images in `more_poems.md`, which omits introductory and navigation boilerplate while retaining status/rhyme labels and expandable readings. There are no individual Markdown poem pages. The copyable text grids remain in both reading editions.
 
 Python 3.9 or newer is required; there are no third-party dependencies. The seven featured IDs and the complete collection's category descriptions live in `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py). If you change the featured selection, update both those IDs and the README by hand.
 
@@ -39,9 +39,9 @@ The earlier forms have different rules. A symmetric square repeats one poem, whi
 
 ## English translations
 
-Each featured poem has an `english` object in the canonical JSON: a stable export `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. This editable text is retained as the source for the PNG cards. Symmetric cards share one translated stanza; the four-direction card explains how to recover the backward readings.
+Each poem has an `english` object in the canonical JSON: a stable export `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. This editable text is retained as the source for the PNG cards. Symmetric cards share one translated stanza. 《留客》 and 《长巷》 explain how to recover backward readings by reversing the forward line order; 《未完的对话》 displays all four readings explicitly.
 
-Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the cards. The checks verify complete line coverage. If a Chinese line changes, update its translation key and wording too. After changing a featured poem or translation, rerender and upload its PNG, then update `imageUrl` and the README image. The document build does not render images or verify remote image contents or availability.
+Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the cards. The checks verify complete line coverage. If a Chinese line changes, update its translation key and wording too. After changing a poem or translation, rerender and upload its PNG, then update `imageUrl` and, if featured, the README image. The document build does not render images or verify remote image contents or availability.
 
 Run both checks after editing:
 

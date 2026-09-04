@@ -99,6 +99,8 @@ Selected · 十欧
 
 ### 《留饮》
 
+![《留饮》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/75e69fec-2fac-4209-a139-67c3e4174955)
+
 Selected · 十欧
 
 ```text
@@ -127,6 +129,8 @@ Selected · 十欧
 </details>
 
 ### 《暮归》
+
+![《暮归》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/865689c9-455f-45d1-a7f2-ad6c6e70fa56)
 
 Selected · 十一安
 
@@ -157,6 +161,8 @@ Selected · 十一安
 
 ### 《旧楼》
 
+![《旧楼》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/f1ea0ea1-2808-410b-83e1-51fce47237eb)
+
 Reserve · 十欧
 
 ```text
@@ -185,6 +191,8 @@ Reserve · 十欧
 </details>
 
 ### 《江边窗光》
+
+![《江边窗光》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/b4ac107f-ea7d-48e8-ac65-498e7726ab76)
 
 Workshop · 十三昂
 
@@ -215,6 +223,8 @@ Workshop · 十三昂
 
 ### 《寄知己》
 
+![《寄知己》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/8fd503a4-23a4-40eb-b435-cf19693843f6)
+
 Workshop · 四衣
 
 ```text
@@ -243,6 +253,8 @@ Workshop · 四衣
 </details>
 
 ### 《姐姐》
+
+![《姐姐》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/6dd07120-d73a-4ebe-a7de-91f074318100)
 
 Workshop · 三鹅 · Conditional rhyme
 
@@ -358,6 +370,8 @@ Selected
 
 ### 《候归》
 
+![《候归》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/5e6e8426-b07e-4e89-b6da-a6a389fe3a82)
+
 Reserve
 
 ```text
@@ -414,6 +428,8 @@ Selected
 
 ### 《长巷》
 
+![《长巷》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/4edbf9e6-cc1e-42b5-b30b-b8cda2c8e759)
+
 Reserve
 
 ```text
@@ -438,6 +454,8 @@ Reserve
 </details>
 
 ### 《未完的对话》
+
+![《未完的对话》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/152001fe-b0eb-4089-8e4e-004a96eb2fd2)
 
 Workshop
 
@@ -468,6 +486,8 @@ Workshop
 
 ### 《入山》
 
+![《入山》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/bc5b1be8-2d9d-4678-bc8d-703c61eafda6)
+
 Selected
 
 ```text
@@ -492,6 +512,8 @@ Selected
 </details>
 
 ### 《梦中辨认》
+
+![《梦中辨认》：诗歌方阵、英文翻译与阅读方向](https://github.com/user-attachments/assets/3f74e629-4085-45c1-9801-acca3b49577f)
 
 Workshop
 

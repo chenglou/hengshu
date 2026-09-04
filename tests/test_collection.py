@@ -58,17 +58,22 @@ class CollectionTests(unittest.TestCase):
         self.assertEqual(len(set(featured)), len(featured))
         self.assertTrue(set(featured).issubset(complete))
 
-    def test_featured_images_are_embedded_in_both_editions(self):
+    def test_poem_images_are_embedded_in_reading_editions(self):
         _, outputs = build.generated_outputs(self.data)
         readme = (ROOT / 'README.md').read_text(encoding='utf-8')
         complete = outputs[ROOT / 'more_poems.md']
+        for p in self.data['poems']:
+            with self.subTest(poem=p['id'], edition='complete'):
+                title = f'《{p["title"]}》'
+                heading_and_image = f'### {title}\n\n![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})'
+                self.assertIn(heading_and_image, complete)
+                self.assertEqual(complete.count(p['imageUrl']), 1)
         for _, _, poems in build.public_selection(self.data):
             for p in poems:
                 with self.subTest(poem=p['id']):
                     title = f'《{p["title"]}》'
                     heading_and_image = f'### {title}\n\n![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})'
                     self.assertIn(heading_and_image + '\n\n' + build.grid_markdown(p), readme)
-                    self.assertIn(heading_and_image, complete)
 
     def test_full_edition_has_no_intro_or_navigation_boilerplate(self):
         complete = build.more_poems_markdown(self.data)
@@ -82,6 +87,17 @@ class CollectionTests(unittest.TestCase):
                 self.poem('P02')['imageUrl'] = url
                 with self.assertRaisesRegex(AssertionError, 'Featured poem requires a GitHub image URL'):
                     build.public_selection(self.data)
+        self.poem('P02')['imageUrl'] = next(p['imageUrl'] for p in self.canonical['poems'] if p['id'] == 'P02')
+        for url in (None, 'poems/liu-yin.md', 'https://example.com/image.png'):
+            with self.subTest(poem='P01', url=url):
+                self.poem('P01')['imageUrl'] = url
+                with self.assertRaisesRegex(AssertionError, 'Invalid GitHub image URL: P01'):
+                    build.validate(self.data)
+
+    def test_poem_card_requires_translation_source(self):
+        del self.poem('F02')['english']
+        with self.assertRaisesRegex(AssertionError, 'Poem card requires English translations: F02'):
+            build.validate(self.data)
 
     def test_rejects_missing_or_empty_english_lines(self):
         p = self.poem('N04')

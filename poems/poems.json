@@ -218,7 +218,24 @@
         "weakness": "滩寒帆晚还 is compressed and partly repeats the preceding cold and delay; 暮滩 is less settled diction than 暮山. The two poems retain very similar syntax.",
         "reading": "难 is nán, difficult; 还 is huán, return. A difficult homecoming followed by a late return is not a contradiction. 雁难还 does not mean return is impossible."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "mu-gui",
+        "title": "Returning at Dusk",
+        "lines": {
+          "孤舟向暮山": "A lone boat heads toward the mountains at dusk.",
+          "舟中风雨寒": "Wind and rain are cold aboard the boat.",
+          "向风望归雁": "Facing the wind, I watch homeward geese.",
+          "暮雨归家难": "In dusk rain, it is hard to return home.",
+          "滩寒帆晚还": "The shoal is cold; a sail returns late.",
+          "孤舟向暮滩": "A lone boat heads toward the shoal at dusk.",
+          "向风望归帆": "Facing the wind, I watch a homeward sail.",
+          "暮雨归家晚": "In dusk rain, the homecoming is late.",
+          "山寒雁难还": "The mountains are cold; geese find it hard to return."
+        },
+        "note": "难 remains difficult, not impossible. 帆 retains the sail as a metonym for the boat; geese and sails remain distinct objects of watching. English supplies an unnamed first-person observer for 望 without adding a biography or a reason for the delay."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/865689c9-455f-45d1-a7f2-ad6c6e70fa56"
     },
     {
       "id": "R03",
@@ -290,7 +307,25 @@
         "weakness": "如故不嫌旧 has an indistinct attachment, and 旧 is overworked. The vertical poem says the building is not or will not be repaired; it does not explain why.",
         "reading": "Do not turn 不修 into opposition to demolition, historically sensitive restoration, or secret repair. Those stories are not in the words."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "jiu-lou",
+        "title": "The Old Building",
+        "lines": {
+          "相对都念旧": "Facing one another, we all recall old times.",
+          "看图说旧友": "Looking at an image, we speak of old friends.",
+          "笑问楼谁守": "Laughing, we ask: who watches over the building?",
+          "如故不嫌旧": "As before, we do not disdain what is old.",
+          "旧友修旧楼": "Old friends repair the old building.",
+          "相看笑如旧": "We look at one another and laugh as before.",
+          "对图问故友": "Facing the image, we ask an old friend.",
+          "都说楼不修": "All say the building is not being repaired.",
+          "念旧谁嫌旧": "Recalling old times—who scorns what is old?",
+          "旧友守旧楼": "Old friends watch over the old building."
+        },
+        "note": "图 remains an image, not necessarily a photograph. 如故不嫌旧 stays general rather than resolving what exactly is unchanged or old. The collective English voice follows 都 and 相对. The contrast is repair versus watching over an unrepaired building; no demolition, preservation policy, or reason for not repairing it is supplied."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/f1ea0ea1-2808-410b-83e1-51fce47237eb"
     },
     {
       "id": "S01",
@@ -462,7 +497,20 @@
         "weakness": "回山自种桃 moves from immediate return into a more general future of rural living. The planting and blooming need not happen on the same night.",
         "reading": "The self-opening door is a small personification of welcome. No additional narrative is necessary."
       },
-      "formLabel": "One poem · → = ↓"
+      "formLabel": "One poem · → = ↓",
+      "english": {
+        "slug": "hou-gui",
+        "title": "Waiting for Your Return",
+        "lines": {
+          "我等你回家": "I wait for you to come home,",
+          "等月归山后": "waiting for the moon to set behind the hills.",
+          "你归门自开": "When you return, the door opens of itself.",
+          "回山自种桃": "Back in the hills, I plant peach trees myself.",
+          "家后开桃花": "Peach blossoms open behind the house."
+        },
+        "note": "The planter in 回山自种桃 is unstated; the translation supplies the opening speaker's I, without implying that planting and flowering happen on the night of the return. The self-opening door remains a personification of welcome. 等月归山后 is read spatially as waiting for the moon to set behind the hills."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/5e6e8426-b07e-4e89-b6da-a6a389fe3a82"
     },
     {
       "id": "F01",
@@ -527,7 +575,25 @@
         "weakness": "人思又思人 and 人来又来人 show the repetitive mechanism. Its reversals are reordered forward lines rather than four independently new sets of lines.",
         "reading": "归客思静夜 means the returning traveler thinks of or longs for a quiet night; it does not explicitly mean resting during a quiet night."
       },
-      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+      "formLabel": "Four cardinal readings · → ↓ ← ↑",
+      "english": {
+        "slug": "chang-xiang",
+        "title": "The Long Lane",
+        "lines": {
+          "长夜人归晚": "A long night; someone returns late.",
+          "巷静来客归": "The lane is quiet; a visitor returns.",
+          "人思又思人": "Someone thinks, then thinks of someone again.",
+          "归客来静巷": "A returning traveler enters the quiet lane.",
+          "晚归人夜长": "For one returning late, the night is long.",
+          "长巷人归晚": "A long lane; someone returns late.",
+          "夜静思客归": "A still night; longing for the traveler’s return.",
+          "人来又来人": "Someone comes; then someone comes again.",
+          "归客思静夜": "The returning traveler longs for a quiet night.",
+          "晚归人巷长": "For one returning late, the lane is long."
+        },
+        "note": "The parallel long night/long lane and late return/night is long/lane is long are preserved. 归客思静夜 means longing for a quiet night, not resting in one. 夜静思客归 leaves the one who longs unnamed. Reversed directions reuse the same ten lines in reverse order."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/4edbf9e6-cc1e-42b5-b30b-b8cda2c8e759"
     },
     {
       "id": "F02",
@@ -622,7 +688,35 @@
         "weakness": "Sequences such as 听雨，听山，问 end in arranged-sounding one-word commands. The twenty distinct strings are not twenty equally strong lines. Punctuation is essential.",
         "reading": "Reverse row 5 is 你等，我听风; reverse column 5 is 你等，我问风. Neither reading contains a shared 你我 subject."
       },
-      "formLabel": "Four cardinal readings · → ↓ ← ↑"
+      "formLabel": "Four cardinal readings · → ↓ ← ↑",
+      "english": {
+        "slug": "wei-wan-de-dui-hua",
+        "title": "An Unfinished Conversation",
+        "lines": {
+          "我等你问风": "I wait; you ask the wind.",
+          "听雨听山问": "Listen to the rain, listen to the mountains, ask.",
+          "你问不听我": "You ask, but do not listen to me.",
+          "等风问雨等": "Wait for the wind, ask the rain, wait.",
+          "风听我等你": "The wind listens; I wait for you.",
+          "我听你等风": "I listen; you wait for the wind.",
+          "等雨问风听": "Wait for the rain, ask the wind, listen.",
+          "你听不问我": "You listen, but do not ask me.",
+          "问山听雨等": "Ask the mountains, listen to the rain, wait.",
+          "风问我等你": "The wind asks; I wait for you.",
+          "风问你等我": "The wind asks; you wait for me.",
+          "问山听雨听": "Ask the mountains, listen to the rain, listen.",
+          "我听不问你": "I listen, but do not ask you.",
+          "等雨问风等": "Wait for the rain, ask the wind, wait.",
+          "你等我听风": "You wait; I listen to the wind.",
+          "风等你听我": "The wind waits; you listen to me.",
+          "听风问雨等": "Listen to the wind, ask the rain, wait.",
+          "我问不听你": "I ask, but do not listen to you.",
+          "等雨听山问": "Wait for the rain, listen to the mountains, ask.",
+          "你等我问风": "You wait; I ask the wind."
+        },
+        "note": "All twenty unique lines follow the canonical punctuation. The personified wind's actions remain separate from I/you clauses. Ask versus listen, each negation, and each pronoun are kept distinct; the short final commands remain commands rather than being expanded into invented dialogue. This grid is not rotation-symmetric."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/152001fe-b0eb-4089-8e4e-004a96eb2fd2"
     },
     {
       "id": "D01",
@@ -671,7 +765,25 @@
         "weakness": "Much of the imagery is conventional, and several changes are landscape substitutions rather than a new argument.",
         "reading": "花影自留客 and 竹色自留客 personify the attractions of the setting; no elaborate backstory is required."
       },
-      "formLabel": "Two poems, no rhyme requirement · → ↓"
+      "formLabel": "Two poems, no rhyme requirement · → ↓",
+      "english": {
+        "slug": "ru-shan",
+        "title": "Into the Hills",
+        "lines": {
+          "微风入竹林": "A faint breeze enters the bamboo grove.",
+          "雨轻山色深": "The rain is light; the mountains are rich in color.",
+          "入林心自远": "Entering the grove, the heart drifts far away.",
+          "花影自留客": "Flower shadows invite the guest to stay.",
+          "林深闲客居": "Deep in the grove, a guest dwells at leisure.",
+          "微雨入花林": "Fine rain enters the flowering grove.",
+          "风轻林影深": "The breeze is light; the grove’s shadows are deep.",
+          "入山心自闲": "Entering the hills, the heart finds ease.",
+          "竹色自留客": "The bamboo’s green invites the guest to stay.",
+          "林深远客居": "Deep in the grove, a guest from afar dwells."
+        },
+        "note": "The changing heart, at leisure/from afar, rain/breeze, flower shadows/bamboo green, and mountain colors/grove shadows are all distinguished. The scenery's invitation is personification, not an added human host. 心自远 is a spontaneous inward distancing, not a claim that the visitor physically travels away."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/bc5b1be8-2d9d-4678-bc8d-703c61eafda6"
     },
     {
       "id": "D02",
@@ -720,7 +832,25 @@
         "weakness": "仍旧梦相见 is conspicuously compressed, and dream/meeting vocabulary repeats without enough further movement.",
         "reading": "Dreaming of meeting is the more defensible reading of 梦相见. Do not silently insert 在梦中 to claim that the written syntax is fully effortless."
       },
-      "formLabel": "Two poems, no rhyme requirement · → ↓"
+      "formLabel": "Two poems, no rhyme requirement · → ↓",
+      "english": {
+        "slug": "meng-zhong-bian-ren",
+        "title": "Recognition in a Dream",
+        "lines": {
+          "我说你仍在": "I say you are still here.",
+          "听你说旧梦": "I listen to you speak of an old dream.",
+          "你在我梦中": "You are in my dream.",
+          "说梦非相见": "To speak of dreams is not to meet.",
+          "梦里我见你": "In a dream, I see you.",
+          "我听你说梦": "I hear you speak of dreams,",
+          "说你在梦里": "say that you are in a dream.",
+          "你说我非我": "You say I am not me.",
+          "仍旧梦相见": "Still, I dream of meeting you.",
+          "在梦中见你": "I see you in a dream."
+        },
+        "note": "仍旧梦相见 is translated as still dreaming of meeting, not silently repaired to meeting in a dream. 我非我 retains the identity question rather than the everyday meaning of not feeling oneself. The subjectless 说你在梦里 continues the preceding I hear you speak...say..., with you doing the speaking; the Chinese does not explicitly supply that subject. No explanation for the person's absence is added."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/3f74e629-4085-45c1-9801-acca3b49577f"
     },
     {
       "id": "N01",
@@ -792,7 +922,24 @@
         "weakness": "浮江帆船晃 compresses a modifier awkwardly; 西面影临窗 leaves the shadow vague. Compass directions and repeated light descriptions still feel dictated by the crossings.",
         "reading": "Across starts from river light on a wall and passes through breeze and sail reflection; down starts from wind against a wall and moves through water light and a swaying boat. These are rearranged observations, not sharply different emotional conclusions."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "jiang-bian-chuang-guang",
+        "title": "Window Light by the River",
+        "lines": {
+          "江光浮西墙": "River light floats on the western wall.",
+          "风在江面上": "Wind is over the river’s surface.",
+          "拂水帆影晃": "Wind brushes the water; a sail’s reflection sways.",
+          "南面船临窗": "On the south side, a boat is by the window.",
+          "墙上晃窗光": "Window light sways on the wall.",
+          "江风拂南墙": "River wind brushes the southern wall.",
+          "光在水面上": "Light is on the surface of the water.",
+          "浮江帆船晃": "A sailboat afloat on the river sways.",
+          "西面影临窗": "On the west side, a shadow is by the window."
+        },
+        "note": "The wind in 拂水 is carried from the preceding line; 帆影 is a sail’s reflection on the water. 浮江帆船晃 is unpacked only into the implied modifier, a sailboat afloat on the river. The western shadow remains unspecified. All compass directions and the repeated window light are retained rather than replaced with a more coherent invented scene."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/b4ac107f-ea7d-48e8-ac65-498e7726ab76"
     },
     {
       "id": "N02",
@@ -890,7 +1037,25 @@
         "weakness": "饿了么姐姐 suddenly asks about the sister’s hunger after the speaker’s hunger and fear. A charitable reader must not invent a tender reconciliation. Repeated 姐姐 and grammatical particles also carry much of the rhyme.",
         "reading": "The final vertical question can sound reproachful: asking whether the sister has had her fun. Sarcasm is an interpretation; a specific abusive incident or reconciliation is not stated."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "jie-jie",
+        "title": "Big Sister",
+        "lines": {
+          "姐姐逗我乐": "Big Sister teases me into laughter.",
+          "姐姐我饿了": "Sis, I’m hungry now.",
+          "笑我够了么": "Laughing at me—have you had enough?",
+          "我怕了姐姐": "I’m afraid of Big Sister now.",
+          "饿了么姐姐": "Are you hungry, Sis?",
+          "姐姐笑我饿": "Big Sister laughs at me for being hungry.",
+          "姐姐我怕了": "Sis, I’m scared now.",
+          "逗我够了么": "Have you had enough of teasing me?",
+          "我饿了姐姐": "I’m hungry now, Sis.",
+          "乐了么姐姐": "Have you had your fun, Sis?"
+        },
+        "note": "Canonical punctuation makes 我怕了姐姐 a statement of fear of the sister, unlike the direct address 姐姐，我怕了. Sis keeps the colloquial voice; the title identifies the older sister. The final hunger question remains abrupt, with no invented reconciliation. Had your fun allows reproach without asserting a particular incident. English does not attempt to reproduce the explicitly conditional Chinese rhyme."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/6dd07120-d73a-4ebe-a7de-91f074318100"
     },
     {
       "id": "N03",
@@ -979,7 +1144,25 @@
         "weakness": "你留诗待寄 changes who holds and sends the poem without connecting the roles clearly. 谁有诗谁寄 is grammatical but abruptly becomes a general maxim. Do not invent reciprocal poetry exchanges or a mail-carrying arrangement to fill those gaps.",
         "reading": "Across asks about purpose and recognition, ending with a pen sent to a confidant. Down states a cause for writing, keeps a pen for the addressee, and ends by sending poetic feeling. This remains an experiment, not a promoted finished pair."
       },
-      "formLabel": "Two rhyming poems · → ↓"
+      "formLabel": "Two rhyming poems · → ↓",
+      "english": {
+        "slug": "ji-zhi-ji",
+        "title": "To a Kindred Spirit",
+        "lines": {
+          "我为谁写诗": "For whom do I write poetry?",
+          "因君有此意": "Because of you, I have this wish.",
+          "你留诗待寄": "You keep the poem, waiting for it to be sent;",
+          "写此谁人知": "Writing this—who will understand?",
+          "此笔寄知己": "I send this pen to a kindred spirit.",
+          "我因你写此": "Because of you, I write this,",
+          "为君留此笔": "I keep this pen for you.",
+          "谁有诗谁寄": "Whoever has a poem sends it;",
+          "写此待人知": "I write this, waiting for someone to understand,",
+          "诗意寄知己": "I send poetic feeling to a kindred spirit."
+        },
+        "note": "此笔 stays a physical pen, distinct from the poetic feeling of 诗意. In 你留诗待寄 the addressee holds the poem, while the passive English leaves its eventual sender unspecified. The general maxim 谁有诗谁寄 is retained; no reciprocal exchange or mail-carrying arrangement is invented. 此意 refers back to the wish to write without adding romantic intent."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/8fd503a4-23a4-40eb-b435-cf19693843f6"
     },
     {
       "id": "N04",
@@ -1274,7 +1457,25 @@
           "url": "https://zdic.net/hans/%E9%85%AC",
           "supports": "The wine-toasting sense of 酬, not a judgment of this poem’s fluency."
         }
-      ]
+      ],
+      "english": {
+        "slug": "liu-yin",
+        "title": "Stay for Wine",
+        "lines": {
+          "临风谁劝酒": "Facing the wind, who urges me to drink?",
+          "窗寒人醉后": "A cold window, after the drinker has grown drunk;",
+          "灯火与君留": "The lamplight stays with you,",
+          "影暖我如旧": "The shadow warms me as before.",
+          "旧酒酬旧友": "Aged wine to toast an old friend.",
+          "临窗灯影旧": "By the window, the lamp’s shadow is as before;",
+          "风寒火暖酒": "The wind is cold; the fire warms the wine.",
+          "谁人与我酬": "Who will exchange a toast with me?",
+          "劝醉君如旧": "I urge you to drink till you are drunk, as before;",
+          "酒后留旧友": "After the wine, I ask an old friend to stay."
+        },
+        "note": "酬 is wine-toasting, not payment. 影暖我如旧 keeps the shadow warming the speaker as a metaphor. The cold-window line preserves the temporal phrase 人醉后; the invitation does not imply an absent or dead friend. The first-person speaker is explicit elsewhere in the poem and supplies the unstated drinking and hosting perspective."
+      },
+      "imageUrl": "https://github.com/user-attachments/assets/75e69fec-2fac-4209-a139-67c3e4174955"
     },
     {
       "id": "P02",

@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / 'poems'
 DATA = BASE / 'poems.json'
 HAN = re.compile(r'[\u4e00-\u9fff]')
+GITHUB_IMAGE_URL = re.compile(r'https://github\.com/user-attachments/assets/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}')
 LABELS = {'right': 'Across →', 'down': 'Down ↓', 'left': 'Reversed rows ←', 'up': 'Reversed columns ↑'}
 ARROWS = {'right': '→', 'down': '↓', 'left': '←', 'up': '↑'}
 PUBLIC_GROUPS = (
@@ -106,6 +107,9 @@ def validate(data):
             assert set(english['lines']) == source_lines, 'English lines do not match supported readings: ' + p['id']
             assert all(isinstance(line, str) and line.strip() and '\n' not in line and '\r' not in line
                        for line in english['lines'].values()), 'Empty or multiline English translation: ' + p['id']
+        if 'imageUrl' in p:
+            assert isinstance(p['imageUrl'], str) and GITHUB_IMAGE_URL.fullmatch(p['imageUrl']), 'Invalid GitHub image URL: ' + p['id']
+            assert english is not None, 'Poem card requires English translations: ' + p['id']
     assert len(export_slugs) == len(set(export_slugs)), 'Duplicate export slug'
     return {'entries': len(ids), 'newEntries': sum(is_new(p, data) for p in data['poems']),
             'selectedRhymingPairs': sum(p['collection'] == 'rhyming_pair' and p['status'] == 'Selected' for p in data['poems']),
@@ -198,9 +202,7 @@ def public_selection(data):
             assert p['collection'] == collection and p['status'] == 'Selected', 'Invalid README selection: ' + p['id']
             assert p.get('english'), 'Featured poem requires English translations: ' + p['id']
             image_url = p.get('imageUrl')
-            assert isinstance(image_url, str) and re.fullmatch(
-                r'https://github\.com/user-attachments/assets/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}',
-                image_url), 'Featured poem requires a GitHub image URL: ' + p['id']
+            assert isinstance(image_url, str) and GITHUB_IMAGE_URL.fullmatch(image_url), 'Featured poem requires a GitHub image URL: ' + p['id']
             if collection == 'rhyming_pair':
                 assert p['rhyme']['compliance'] == 'pass' and not p['checks']['transposeSymmetric']
             elif collection == 'same_poem_square':
@@ -221,7 +223,6 @@ def validate_readme(data, current):
 
 def more_poems_markdown(data):
     by_id = {p['id']: p for p in data['poems']}
-    featured = {p['id'] for _, _, poems in public_selection(data) for p in poems}
     ordered = []
     for section in data['sections']:
         for group in section.get('groups') or [section]:
@@ -244,7 +245,7 @@ def more_poems_markdown(data):
                     labels.append('Conditional rhyme')
             title = f'《{p["title"]}》'
             out.append('### ' + title)
-            if pid in featured:
+            if p.get('imageUrl'):
                 out.append(f'![{title}：诗歌方阵、英文翻译与阅读方向]({p["imageUrl"]})')
             out.extend([' · '.join(labels), grid_markdown(p)])
             directions = ['right'] if p['checks']['transposeSymmetric'] else p['directions']
