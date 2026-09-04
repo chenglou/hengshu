@@ -1,0 +1,303 @@
+{
+  "source": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202111/W020211118492193544846.pdf",
+  "note": "Reviewed endings used by this collection, not a complete pronunciation dictionary. Add new readings only after checking the character in context. Conditional readings cannot support a strict rhyme claim.",
+  "families": {
+    "十一安": [
+      "an",
+      "ian",
+      "uan",
+      "üan"
+    ],
+    "十欧": [
+      "iou",
+      "ou"
+    ],
+    "十三昂": [
+      "ang",
+      "iang",
+      "uang"
+    ],
+    "三鹅": [
+      "e",
+      "ie",
+      "üe"
+    ],
+    "四衣": [
+      "-i",
+      "i"
+    ]
+  },
+  "readings": {
+    "晚": [
+      {
+        "pinyin": "wǎn",
+        "final": "uan"
+      }
+    ],
+    "烟": [
+      {
+        "pinyin": "yān",
+        "final": "ian"
+      }
+    ],
+    "漫": [
+      {
+        "pinyin": "màn",
+        "final": "an"
+      }
+    ],
+    "远": [
+      {
+        "pinyin": "yuǎn",
+        "final": "üan"
+      }
+    ],
+    "天": [
+      {
+        "pinyin": "tiān",
+        "final": "ian"
+      }
+    ],
+    "寒": [
+      {
+        "pinyin": "hán",
+        "final": "an"
+      }
+    ],
+    "山": [
+      {
+        "pinyin": "shān",
+        "final": "an"
+      }
+    ],
+    "连": [
+      {
+        "pinyin": "lián",
+        "final": "ian"
+      }
+    ],
+    "雁": [
+      {
+        "pinyin": "yàn",
+        "final": "ian"
+      }
+    ],
+    "难": [
+      {
+        "pinyin": "nán",
+        "final": "an"
+      }
+    ],
+    "还": [
+      {
+        "pinyin": "huán",
+        "final": "uan"
+      }
+    ],
+    "滩": [
+      {
+        "pinyin": "tān",
+        "final": "an"
+      }
+    ],
+    "帆": [
+      {
+        "pinyin": "fān",
+        "final": "an"
+      }
+    ],
+    "旧": [
+      {
+        "pinyin": "jiù",
+        "final": "iou"
+      }
+    ],
+    "友": [
+      {
+        "pinyin": "yǒu",
+        "final": "ou"
+      }
+    ],
+    "守": [
+      {
+        "pinyin": "shǒu",
+        "final": "ou"
+      }
+    ],
+    "楼": [
+      {
+        "pinyin": "lóu",
+        "final": "ou"
+      }
+    ],
+    "修": [
+      {
+        "pinyin": "xiū",
+        "final": "iou"
+      }
+    ],
+    "墙": [
+      {
+        "pinyin": "qiáng",
+        "final": "iang"
+      }
+    ],
+    "上": [
+      {
+        "pinyin": "shàng",
+        "final": "ang"
+      }
+    ],
+    "晃": [
+      {
+        "pinyin": "huàng",
+        "final": "uang"
+      }
+    ],
+    "窗": [
+      {
+        "pinyin": "chuāng",
+        "final": "uang"
+      }
+    ],
+    "光": [
+      {
+        "pinyin": "guāng",
+        "final": "uang"
+      }
+    ],
+    "乐": [
+      {
+        "pinyin": "lè",
+        "final": "e"
+      }
+    ],
+    "了": [
+      {
+        "pinyin": "le",
+        "final": "e"
+      }
+    ],
+    "么": [
+      {
+        "pinyin": "me",
+        "final": "e",
+        "conditional": true
+      }
+    ],
+    "姐": [
+      {
+        "pinyin": "jiě",
+        "final": "ie"
+      }
+    ],
+    "饿": [
+      {
+        "pinyin": "è",
+        "final": "e"
+      }
+    ],
+    "诗": [
+      {
+        "pinyin": "shī",
+        "final": "-i"
+      }
+    ],
+    "意": [
+      {
+        "pinyin": "yì",
+        "final": "i"
+      }
+    ],
+    "寄": [
+      {
+        "pinyin": "jì",
+        "final": "i"
+      }
+    ],
+    "知": [
+      {
+        "pinyin": "zhī",
+        "final": "-i"
+      }
+    ],
+    "己": [
+      {
+        "pinyin": "jǐ",
+        "final": "i"
+      }
+    ],
+    "此": [
+      {
+        "pinyin": "cǐ",
+        "final": "-i"
+      }
+    ],
+    "笔": [
+      {
+        "pinyin": "bǐ",
+        "final": "i"
+      }
+    ],
+    "酒": [
+      {
+        "pinyin": "jiǔ",
+        "final": "iou"
+      }
+    ],
+    "后": [
+      {
+        "pinyin": "hòu",
+        "final": "ou"
+      }
+    ],
+    "留": [
+      {
+        "pinyin": "liú",
+        "final": "iou"
+      }
+    ],
+    "酬": [
+      {
+        "pinyin": "chóu",
+        "final": "ou"
+      }
+    ],
+    "掩": [
+      {
+        "pinyin": "yǎn",
+        "final": "ian"
+      }
+    ],
+    "有": [
+      {
+        "pinyin": "yǒu",
+        "final": "ou"
+      }
+    ],
+    "瘦": [
+      {
+        "pinyin": "shòu",
+        "final": "ou"
+      }
+    ],
+    "手": [
+      {
+        "pinyin": "shǒu",
+        "final": "ou"
+      }
+    ],
+    "绣": [
+      {
+        "pinyin": "xiù",
+        "final": "iou"
+      }
+    ],
+    "愁": [
+      {
+        "pinyin": "chóu",
+        "final": "ou"
+      }
+    ]
+  }
+}

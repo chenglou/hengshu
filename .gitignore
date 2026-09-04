@@ -2,6 +2,8 @@
 __pycache__/
 *.py[cod]
 .venv/
+node_modules/
+output/
 .env
 .env.*
 !.env.example

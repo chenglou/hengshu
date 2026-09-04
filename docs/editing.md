@@ -1,54 +1,56 @@
-# Editing the collection
+# Editing and publishing
 
-## Source and generated files
+Run commands from the repository root. The [creation guide](editorial-notes.md) covers writing and literary review.
 
-Edit [poems/poems.json](../poems/poems.json). Running `python3 scripts/build.py` updates:
+## Setup
 
-- [More poems: all 18 grids](../more_poems.md)
-- [Editorial notes: rankings, commentary, and review history](editorial-notes.md)
+Use Python 3.9+ for validation and Markdown generation, and Node 20.9+ for cards:
 
-Edit the entire [README](../README.md) directly in Markdown. The build never rewrites it and requires no markers. It reads the fenced poem grids to check that they match the featured selection in the canonical data; ordinary prose edits do not affect that check.
+```sh
+npm ci
+npx playwright install chromium
+```
 
-Do not hand-edit `more_poems.md` or `editorial-notes.md`. `python3 scripts/build.py --check` validates without writing and reports missing or stale generated content. Check results are printed to the terminal, not stored in a separate file.
+On Linux, `npx playwright install --with-deps chromium` can install browser system dependencies too. No Python packages are required.
 
-Both reading editions embed each uploaded PNG card immediately after its plain-text title. Each poem's `imageUrl` stores its GitHub attachment URL; for featured poems, update the README image manually too. The build embeds all 18 images in `more_poems.md`, which omits introductory and navigation boilerplate while retaining status/rhyme labels and expandable readings. There are no individual Markdown poem pages. The copyable text grids remain in both reading editions.
+## Check a draft
 
-Python 3.9 or newer is required; there are no third-party dependencies. The seven featured IDs and the complete collection's category descriptions live in `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py). If you change the featured selection, update both those IDs and the README by hand.
+A draft JSON object needs `rows` (five five-character strings) and `collection`: `rhyming_pair`, `same_poem_square`, `four_direction`, or `unrhymed_pair`. `directions` defaults to the form's readings. For a rhyming pair, also supply `rhyme` with `family`, five contextual pinyin readings in each of `across` and `down`, and `compliance` (`pass` or `conditional`). Conditional rhyme requires a `caveat` and cannot be Selected.
 
-## Revising a poem
+```sh
+python3 scripts/build.py --draft path/to/draft.json
+```
 
-Keep each poem's stable `id`. Its `rows` are the five character strings forming the square. The explicit `readings`, optional `punctuation`, and `checks` describe that exact text; update them together. The validator recomputes the readings and rejects drift.
+This checks one draft without changing the collection and prints its computed readings. English is optional at this stage. The checked endings in [poems/rhymes.json](../poems/rhymes.json) are an editable reference, not a complete pronunciation dictionary. Review new endings in context before adding their pronunciation and family; disclose ambiguity instead of choosing a convenient sound.
 
-If a featured poem changes, update its README grid too before running the build. The build reports mismatches rather than silently repairing hand-edited text.
+## Add it to the collection
 
-For a meaningful alternative to a preserved source-backed poem, add a new entry with a new ID and a revision note. Keep the earlier version in the archive. A `source` path means the current rows must still occur verbatim in that source document; do not silently break that promise.
+[poems/poems.json](../poems/poems.json) contains a `poems` list; its order determines the order within each form. Keep stable `id` and `title`, the draft fields, and a `status` (`Selected`, `Reserve`, or `Workshop`). Add optional `punctuation` by direction without changing any characters or their order. Readings and mechanical results are calculated, not stored twice.
 
-When an ending changes, review its pronunciation in context. Update the poem's `rhyme` metadata and the reviewed pronunciation/family table in [scripts/build.py](../scripts/build.py) when necessary. Those tables are editorial inputs, not an automatic dictionary. Ambiguous pronunciation must be disclosed rather than forced to make a rhyme pass.
+For cards, the draft also needs an `id`, Chinese `title`, and `english` with an export `slug`, English `title`, and `lines` keyed by **each unique unpunctuated Chinese line** across all supported directions. Repeated lines share translations. An optional `note` holds translation caveats. Add a `palette`: `beige`, `green`, `rose`, `blue`, `sage`, or `plum` (defaults to beige).
 
-Ranks are the order of IDs in `sections`. Every current poem appears exactly once in the collection structure. `status` is the sole selection status; `curation.short` is the sole current short assessment. The fuller reasoning and reservations live beside it in `curation`. Earlier editorial judgments remain in the dated [archive](../archive/README.md).
+## Render the picture
 
-## Selection is a separate judgment
+```sh
+node scripts/render-cards.cjs --input path/to/draft.json --output output/cards
+node scripts/render-cards.cjs --poem P02 --output output/cards
+```
 
-The README features three selected rhyming pairs, three selected symmetric squares, and one selected four-direction poem. Its seven-poem selection is explicit, rather than automatically changing with the rankings. `more_poems.md` contains every grid once, including those seven and the two unrhymed pairs, while marking reserve and workshop entries. The editorial notes explain the choices and retain the review history.
+The first command renders a translated draft; the second renders a collection entry. Use `--palette sage` to try another palette. Inspect every supported reading and the exported PNG. Symmetric cards share one stanza; reverse readings use a line-order note only when that shortcut is exact, otherwise they appear in full. Wrapping fails validation rather than silently shrinking the text.
 
-Any rhyming pair marked `Selected` must have a passing rhyme check and different across/down readings, whether or not it is featured in the README. The explicitly conditional rhyme draft cannot be selected.
+Chinese type defaults to Songti SC / Noto Serif SC / SimSun; English uses Georgia / Times New Roman. Install a Chinese serif font if needed, or set `CJK_FONT` to its family name. Fonts and platforms affect exact pixels. `CHROMIUM_EXECUTABLE_PATH` optionally selects an installed browser.
 
-For editorial review, read each direction as a complete poem before comparing crossings. Attend first to the less fluent reading, then to specificity, progression, and what changes in meaning. Ordinary poetic ellipsis and metaphor are allowed; added backstories are not evidence that a line works.
+## Publish and verify
 
-The earlier forms have different rules. A symmetric square repeats one poem, while a reversible grid may rearrange already-used lines. Preserve those distinctions instead of inflating the number of independent poems.
-
-## English translations
-
-Each poem has an `english` object in the canonical JSON: a stable export `slug`, an English `title`, a `lines` mapping keyed by each unique unpunctuated Chinese line, and an optional source-only translation `note`. Repeated Chinese lines share one translation, including in symmetric and reversed readings. This editable text is retained as the source for the PNG cards. Symmetric cards share one translated stanza. 《留客》 and 《长巷》 explain how to recover backward readings by reversing the forward line order; 《未完的对话》 displays all four readings explicitly.
-
-Translate the meaning without forcing English rhyme or inventing details absent from the Chinese. Keep translation rationale in the source data rather than on the cards. The checks verify complete line coverage. If a Chinese line changes, update its translation key and wording too. After changing a poem or translation, rerender and upload its PNG, then update `imageUrl` and, if featured, the README image. The document build does not render images or verify remote image contents or availability.
-
-Run both checks after editing:
+Upload the PNG to GitHub and put its attachment URL in `imageUrl`. Rerender and reupload after changing the poem or translation; an existing uploaded image does not update itself.
 
 ```sh
 python3 scripts/build.py
 python3 scripts/build.py --check
 python3 -m unittest discover -s tests
+npm test
 ```
 
-See the [publication checklist](publishing.md) for remaining release decisions.
+The build writes only [more_poems.md](../more_poems.md); `--check` reports drift without writing. It does not inspect remote image contents or availability. These two guides are maintained by hand.
+
+Edit the [README](../README.md) manually, preserving its copyable grids. If the featured selection changes, update `PUBLIC_GROUPS` in [scripts/build.py](../scripts/build.py), the README grids, and their inline image URLs together. Review the diff before committing and pushing.

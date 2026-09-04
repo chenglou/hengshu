@@ -1,0 +1,90 @@
+/* Fixed-width cards: 940 CSS pixels, exported at 2×. No remote fonts. */
+html, body { margin: 0; padding: 0; }
+#hengshu-card { width: 940px; color-scheme: light; }
+#hengshu-card * { box-sizing: border-box; }
+.poem-poster {
+  --han-font: "Songti SC", "Noto Serif SC", "SimSun", "Noto Serif CJK SC", serif;
+  margin: 0 auto;
+  width: 940px;
+  padding: 40px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+[data-palette="beige"] .poem-poster {
+  --paper: #f5f0e6; --ink: #282c27; --quiet: #65695f;
+  --accent-ink: #8c3c31; --rule-ink: #cfc7b7; --footer-ink: #aaa99f;
+}
+[data-palette="green"] .poem-poster {
+  --paper: #232a28; --ink: #f0ebdf; --quiet: #b8c0b2;
+  --accent-ink: #edaa94; --rule-ink: #536057; --footer-ink: #747e76;
+}
+[data-palette="rose"] .poem-poster {
+  --paper: #efe1df; --ink: #4a303d; --quiet: #755f69;
+  --accent-ink: #91515d; --rule-ink: #d3bdc1; --footer-ink: #b9a6ac;
+}
+[data-palette="blue"] .poem-poster {
+  --paper: #283747; --ink: #f0e8da; --quiet: #bbc4cc;
+  --accent-ink: #d6ad8a; --rule-ink: #546a7f; --footer-ink: #70808f;
+}
+[data-palette="sage"] .poem-poster {
+  --paper: #e5e8dd; --ink: #303c33; --quiet: #5f6a5b;
+  --accent-ink: #806143; --rule-ink: #c2cab8; --footer-ink: #a5ae9e;
+}
+[data-palette="plum"] .poem-poster {
+  --paper: #352c36; --ink: #f2e9df; --quiet: #c2b4be;
+  --accent-ink: #deb49b; --rule-ink: #62505f; --footer-ink: #897e88;
+}
+.masthead { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.masthead span, .reading-label, .poster-footer {
+  color: var(--quiet);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px; font-weight: 400; letter-spacing: .13em; line-height: 1.5;
+}
+.title-row { display: flex; gap: 18px; align-items: baseline; margin: 26px 0 23px; }
+.poem-name {
+  margin: 0; font-family: var(--han-font); font-size: 48px;
+  font-weight: 400; line-height: 1.25; letter-spacing: .13em;
+}
+.english-name { color: var(--quiet); font-style: italic; font-size: 18px; line-height: 1.4; }
+.across-grid { display: grid; grid-template-columns: repeat(5, 60px) minmax(0, 1fr); align-items: stretch; }
+.grid-label { grid-column: 1 / 6; padding-bottom: 12px; }
+.across-label { padding-left: 24px; padding-bottom: 12px; }
+.han {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 62px; padding: 8px 0; font-family: var(--han-font);
+  font-size: 37px; font-weight: 400; line-height: 1.4;
+}
+.across-line {
+  display: flex; align-items: center; margin: 0; padding: 7px 0 7px 24px;
+  font-size: 18px; font-weight: 400; line-height: 1.45; white-space: nowrap;
+}
+.across-text { white-space: nowrap; }
+.across-line.numbered { display: grid; grid-template-columns: 20px minmax(0, 1fr); column-gap: 13px; }
+.column-key {
+  color: var(--accent-ink); text-align: center; padding: 6px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px; font-weight: 500; line-height: 1.5;
+}
+.column-key::before { content: ""; display: block; width: 1px; height: 10px; background: var(--rule-ink); margin: 0 auto 5px; }
+.down-reading { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule-ink); }
+.down-reading .reading-label, .reverse-stanza .reading-label { margin: 0 0 15px; }
+.down-lines, .reverse-lines { display: grid; gap: 11px; }
+.down-line, .reverse-line { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 13px; align-items: baseline; }
+.verse-key, .across-key {
+  color: var(--accent-ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px; font-weight: 500;
+}
+.verse-key { line-height: 1.5; }
+.verse-text, .reverse-text { margin: 0; font-size: 18px; font-weight: 400; line-height: 1.5; white-space: nowrap; }
+.reverse-note {
+  display: flex; gap: 32px; margin-top: 26px; color: var(--quiet);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px; line-height: 1.5; letter-spacing: .04em;
+}
+.reverse-readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule-ink); }
+.poster-footer {
+  display: flex; justify-content: flex-end; gap: 14px; flex-wrap: wrap;
+  margin-top: 32px; padding-top: 13px; color: var(--footer-ink);
+  border-top: none; letter-spacing: .04em;
+}

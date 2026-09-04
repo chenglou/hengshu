@@ -4,6 +4,9 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import subprocess
+import sys
+import tempfile
 import unittest
 from urllib.parse import unquote
 
@@ -41,7 +44,7 @@ class CollectionTests(unittest.TestCase):
         current = (ROOT / 'README.md').read_text(encoding='utf-8')
         original = ' '.join(self.poem('P02')['rows'][0])
         edited = current.replace(original, '人 去 旧 柳 寒', 1)
-        with self.assertRaisesRegex(AssertionError, 'README poem grids differ'):
+        with self.assertRaisesRegex(ValueError, 'README poem grids differ'):
             build.validate_readme(self.data, edited)
 
     def test_public_editions_preserve_grids_and_complete_coverage(self):
@@ -81,84 +84,129 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(complete.endswith('</details>\n'))
         self.assertNotIn('Featured in README', complete)
 
+    def test_symmetric_four_direction_grid_keeps_backward_readings(self):
+        poem = {'id': 'NEW', 'title': '测试', 'collection': 'four_direction',
+                'rows': self.poem('S01')['rows']}
+        report = build.validate_poem(poem)
+        self.assertTrue(report['transposeSymmetric'])
+        document = build.more_poems_markdown({'poems': [poem]})
+        self.assertIn('Readings: → / ↓ / ← / ↑', document)
+        self.assertIn(report['readings']['left'][0], document)
+
     def test_rejects_missing_or_invalid_image_urls(self):
-        for url in (None, 'poems/gui-qu.md', 'https://example.com/image.png'):
-            with self.subTest(url=url):
-                self.poem('P02')['imageUrl'] = url
-                with self.assertRaisesRegex(AssertionError, 'Featured poem requires a GitHub image URL'):
-                    build.public_selection(self.data)
-        self.poem('P02')['imageUrl'] = next(p['imageUrl'] for p in self.canonical['poems'] if p['id'] == 'P02')
-        for url in (None, 'poems/liu-yin.md', 'https://example.com/image.png'):
-            with self.subTest(poem='P01', url=url):
-                self.poem('P01')['imageUrl'] = url
-                with self.assertRaisesRegex(AssertionError, 'Invalid GitHub image URL: P01'):
-                    build.validate(self.data)
+        for pid in ('P02', 'P01'):
+            for url in (None, 'poems/image.md', 'https://example.com/image.png'):
+                with self.subTest(poem=pid, url=url):
+                    original = self.poem(pid)['imageUrl']
+                    self.poem(pid)['imageUrl'] = url
+                    with self.assertRaisesRegex(ValueError, 'invalid GitHub image URL'):
+                        build.validate(self.data)
+                    self.poem(pid)['imageUrl'] = original
 
     def test_poem_card_requires_translation_source(self):
         del self.poem('F02')['english']
-        with self.assertRaisesRegex(AssertionError, 'Poem card requires English translations: F02'):
+        with self.assertRaisesRegex(ValueError, 'F02: poem card requires English translations'):
             build.validate(self.data)
 
     def test_rejects_missing_or_empty_english_lines(self):
         p = self.poem('N04')
-        raw = p['readings']['up'][0]
+        raw = build.readings(p)['up'][0]
         original = p['english']['lines'].pop(raw)
-        with self.assertRaisesRegex(AssertionError, 'English lines do not match'):
+        with self.assertRaisesRegex(ValueError, 'English lines do not match'):
             build.validate(self.data)
         p['english']['lines'][raw] = ''
-        with self.assertRaisesRegex(AssertionError, 'Empty or multiline English'):
+        with self.assertRaisesRegex(ValueError, 'empty or multiline English'):
             build.validate(self.data)
         p['english']['lines'][raw] = original
 
     def test_rejects_unsafe_or_duplicate_export_slugs(self):
         p = self.poem('P02')
         p['english']['slug'] = '../README'
-        with self.assertRaisesRegex(AssertionError, 'Invalid export slug'):
+        with self.assertRaisesRegex(ValueError, 'invalid export slug'):
             build.validate(self.data)
         p['english']['slug'] = self.poem('R01')['english']['slug']
-        with self.assertRaisesRegex(AssertionError, 'Duplicate export slug'):
+        with self.assertRaisesRegex(ValueError, 'Duplicate export slug'):
             build.validate(self.data)
 
     def test_rejects_missing_character(self):
         self.poem('P02')['rows'][0] = '人归旧柳'
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             build.validate(self.data)
 
-    def test_rejects_incorrect_transpose(self):
-        self.poem('P02')['readings']['down'][0] = '人归旧柳寒'
-        with self.assertRaisesRegex(AssertionError, 'Reading mismatch'):
-            build.validate(self.data)
+    def test_computes_four_directions_without_stored_readings(self):
+        draft = {'collection': 'four_direction', 'rows': self.poem('F02')['rows']}
+        report = build.validate_poem(draft)
+        self.assertEqual(report['readings']['down'],
+                         ['我听你等风', '等雨问风听', '你听不问我', '问山听雨等', '风问我等你'])
+        self.assertEqual(report['readings']['left'],
+                         ['风问你等我', '问山听雨听', '我听不问你', '等雨问风等', '你等我听风'])
+        self.assertEqual(report['readings']['up'],
+                         ['风等你听我', '听风问雨等', '我问不听你', '等雨听山问', '你等我问风'])
+        self.assertEqual(report['distinctSupported'], 20)
 
     def test_rejects_punctuation_that_changes_text(self):
         self.poem('P03')['punctuation']['right'][0] = '相对才念旧，'
-        with self.assertRaisesRegex(AssertionError, 'Punctuation changed letters'):
+        with self.assertRaisesRegex(ValueError, 'punctuation changed grid characters'):
             build.validate(self.data)
 
     def test_rejects_wrong_rhyme_family(self):
         self.poem('P02')['rhyme']['family'] = '十欧'
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             build.validate(self.data)
 
     def test_rejects_wrong_contextual_pronunciation(self):
         self.poem('R02')['rhyme']['across'][-1] = 'hái'
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             build.validate(self.data)
 
     def test_conditional_rhyme_cannot_enter_selection(self):
         self.poem('N02')['status'] = 'Selected'
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             build.generated_outputs(self.data)
 
-    def test_preserved_source_cannot_be_silently_rewritten(self):
-        p = self.poem('R01')
-        p['rows'][0] = '孤帆过渚晚'
-        p['readings']['right'][0] = p['rows'][0]
-        p['readings']['down'][0] = '孤舟客梦寒'
-        with self.assertRaisesRegex(AssertionError, 'Earlier wording altered'):
+    def test_draft_cli_needs_no_collection_or_publication_metadata(self):
+        before = (ROOT / 'poems' / 'poems.json').read_bytes()
+        for pid in ('R01', 'S01'):
+            poem = self.poem(pid)
+            draft = {key: poem[key] for key in ('collection', 'rows', 'rhyme') if key in poem}
+            with self.subTest(poem=pid), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory) / 'draft.json'
+                path.write_text(json.dumps(draft, ensure_ascii=False), encoding='utf-8')
+                result = subprocess.run([sys.executable, str(ROOT / 'scripts' / 'build.py'),
+                                         '--draft', str(path)], cwd=directory,
+                                        text=True, capture_output=True, check=True)
+                report = json.loads(result.stdout)
+                self.assertEqual(report['readings']['right'], poem['rows'])
+                self.assertEqual(report['transposeSymmetric'], pid == 'S01')
+        self.assertEqual((ROOT / 'poems' / 'poems.json').read_bytes(), before)
+
+    def test_draft_checks_form_and_declared_directions(self):
+        draft = {'collection': 'same_poem_square', 'rows': self.poem('S01')['rows']}
+        draft['directions'] = ['right']
+        with self.assertRaisesRegex(ValueError, 'incorrect directions'):
+            build.validate_poem(draft)
+        del draft['directions']
+        draft['rows'] = self.poem('R01')['rows']
+        with self.assertRaisesRegex(ValueError, 'not symmetric'):
+            build.validate_poem(draft)
+
+    def test_rhyme_checks_can_use_an_additional_reviewed_reading(self):
+        poem = self.poem('N01')
+        draft = {key: poem[key] for key in ('collection', 'rows', 'rhyme')}
+        draft['rhyme']['across'][2] = 'huǎng'
+        with self.assertRaisesRegex(ValueError, 'unreviewed pronunciation'):
+            build.validate_poem(draft)
+        reference = copy.deepcopy(build.RHYMES)
+        reference['readings']['晃'].append({'pinyin': 'huǎng', 'final': 'uang'})
+        self.assertEqual(build.validate_poem(draft, reference)['rhyme'], 'pass')
+
+    def test_conditional_reading_cannot_be_relabelled_as_strict(self):
+        self.poem('N02')['rhyme']['compliance'] = 'pass'
+        with self.assertRaisesRegex(ValueError, 'conditional pronunciation'):
             build.validate(self.data)
 
     def test_local_markdown_links_resolve(self):
-        for document in ROOT.rglob('*.md'):
+        for document in [*ROOT.glob('*.md'), *(ROOT / 'docs').rglob('*.md')]:
             text = document.read_text(encoding='utf-8')
             for target in re.findall(r'\]\(([^\s)]+)\)', text):
                 if '://' in target or target.startswith(('#', 'mailto:')):
